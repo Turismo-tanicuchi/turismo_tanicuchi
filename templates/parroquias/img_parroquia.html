@@ -1,0 +1,31 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block body %}
+  {% if object_list %}
+  <div class="col-md-12 text-center ">
+    <h1 class="text-center" >Imágenes de la Parroquia </h1>
+    <br>
+    <a href="{% url 'parroquias:cargar_imagenes' %}" class = "btn btn-primary ">Agregar Nueva Imagen</a>
+    <br>
+    <br>
+  </div>
+
+  <div class="row">
+      {% for imagenes in object_list %}
+    <div class="col-sm-6">
+      <div class="card">
+        {% if imagenes.imagen %}
+             <img src={{imagenes.imagen.url}} alt="imagen" height="300">
+          {% endif %}
+        <div class="card-body">
+          <a href="{% url 'parroquias:eliminar_imagen' imagenes.id %}" class = "btn btn-danger">Eliminar</a>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+  </div>
+  {% else %}
+  <h2>NO EXISTEN DATOS</h2>
+  <a href="{% url 'parroquias:cargar_imagenes' %}" class = "btn btn-primary ">Agregar Nueva Imagen</a>
+  {% endif %}
+{% endblock body %}

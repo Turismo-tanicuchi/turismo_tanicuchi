@@ -1,0 +1,21 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Registro de Parroquia
+{% endblock titulo %}
+
+{% block body %}
+<div class="admin col">
+  <div class="card">
+      <h2 class="card-title">Registro de Parroquia</h2>
+
+      <form  method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form.as_p}}
+          <div class="modal-footer">
+            <a href="{% url 'empresa:listado_empresa' %}" class="btn btn-danger" >Cancelar</a>
+            <button class="btn btn-primary" type="submit">Registrar</button>
+          </div>
+      </form>
+    </div>
+</div>
+{% endblock body %}

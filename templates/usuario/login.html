@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block navbar %}
+  {% include 'navbar_index.html' %}
+{% endblock %}
+
+{% block content %}
+<div class=" turista col" >
+  <br>
+  <h2 class="text-center">Iniciar Sesión</h2>
+  <!-- creacion del formulario -->
+  <form method="post" >
+    {% csrf_token %}
+    <div class="form-group">
+      {% if form.error_messages %}
+          <div class="alert {% if message.tags == 'success' %}alert-success{%else%}alert-danger{% endif %} " >
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>Advertencia: </strong> <br> {{form.get_invalid_login_error}}
+          </div>
+      {% endif %}
+      <label for="username">Nombre de Usuario</label>
+      <input type="text" name="username" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input type="password" name="password" class="form-control">
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+    
+  </form>
+</div>
+{% endblock %}

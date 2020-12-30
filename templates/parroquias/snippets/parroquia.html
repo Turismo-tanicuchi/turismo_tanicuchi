@@ -1,0 +1,10 @@
+<div class="card h-100">
+  {% if parroquia.imagen %}
+     <img src={{parroquia.imagen.url}} alt="imagen de la parroquia" height="250">
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{parroquia.nombre_parr}}</h5>
+    <p class="card-text">{{parroquia.coordenadas}}</p>
+    <a href="#" class = "btn btn-primary">Ver más</a>
+  </div>
+</div>

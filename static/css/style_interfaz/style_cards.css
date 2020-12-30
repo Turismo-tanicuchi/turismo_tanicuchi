@@ -1,0 +1,29 @@
+/*ESTILOS SUB-TARJETAS TURISMO Y FOMENTO*/
+.subtarjetas{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+.col .card-subtarjetas {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.25s;
+  background-color: #F8F9F9;
+  box-shadow: 15px 15px 10px rgba(0,0,0,0.4);
+
+}
+
+.col .card-subtarjetas:hover{
+    transform: translateY(-05px);
+}
+
+.col .card-subtarjetas h5{
+  font-weight: 500;
+}
+.col .card-subtarjetas a{
+  font-weight: 500;
+  text-decoration: none;
+  color: #F8F9F9;
+}

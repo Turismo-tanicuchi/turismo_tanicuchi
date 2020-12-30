@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block navbar %}
+  {% include 'navbar_index.html' %}
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style_agenda.css'%}">
+<link rel="stylesheet" href="{% static 'fullcalendar/lib/main.css' %}">
+<link rel="shortcut icon" href="">
+<link rel="shortcut icon" href="#">
+{% endblock %}
+
+{% block content %}
+<div class="col">
+    <h1 class="text-center">Agenda de actividades</h1>
+  <div class="card-body text-center">
+    <div class="calendar disable-selection " id="calendar"> </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block javascript %}
+  <script src="{% static 'fullcalendar/lib/main.js' %}"></script>
+  <script src="{% static 'fullcalendar/lib/locales/es.js' %}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var calendarUI = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar (calendarUI,{
+        headerToolbar:{
+          left:'',
+          center:'title',
+        },
+        events:[
+          {% for atractivo_cultural in mostrar_actividades_culturales %}
+              {
+                title: "{{ atractivo_cultural.nombre}}" +" "+ "{{atractivo_cultural.parroquia}}",
+                start: " {{ atractivo_cultural.fecha | date:'Y-m-d'}}",
+                url: "{% url 'turista:actividad_cultural' atractivo_cultural.id %}" 
+              },
+          {% endfor %}
+        ]
+      });
+      calendar.render()
+      calendar.setOption('locales','es')
+    });
+  </script>
+{% endblock %}

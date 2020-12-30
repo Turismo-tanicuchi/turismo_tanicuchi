@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/style_interfaz/style_menu.css'%}">
+{% endblock %}
+{% block content %}
+  {% if mostrar_categorias %}
+  <div class="container-fluid">
+    <h1 class="font text-center ">Categorias</h1>
+    <div class="container_fomento">
+      {% for categorias in mostrar_categorias %}
+        <div class="card_fomento">
+          {% if categorias.imagen %}
+            <img src="{{categorias.imagen.url}}" class="card-img" alt="img">
+           {% else %}
+           <h3 class="fas fa-map-marked-alt"></h3>
+           {% endif %}
+           <h4>{{categorias.nombre}}</h4>
+           <a href="{% url 'turista:empresas' categorias.id %}">Ver Empresas</a>
+           <p class="text-justify" >{{categorias.descripcion}}</p>
+
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
+    <div class="col">
+      <h1 class="text-center" >NO EXISTEN DATOS</h1>
+    </div>
+  {% endif %}
+{% endblock %}

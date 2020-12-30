@@ -1,0 +1,61 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Listado de las Categorias Empresa
+{% endblock titulo %}
+{% block body %}
+{% if object_list %}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="card-title">Lista Categorias de Empresas</h2>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'empresa:registrar_categoria' %}" class="btn btn-primary">Registrar Categoría</a>
+            </div>
+        </div>
+    </div>
+    <div class="table-stats order-table ov-h table-responsive-sm" >
+        <table id="tabla_transportes" class="table table-hover" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre de la categoria</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Parroquia</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for Categorias in object_list %}
+              <tr>
+                <td>{{Categorias.nombre}}</td>
+                <td>{{Categorias.descripcion}}</td>
+                <td>
+                    {% if Categorias.imagen %}
+                      <img src="{{Categorias.imagen.url}}" alt="img">
+                    {% endif %}
+                </td>
+                <td>{{Categorias.parroquia}}</td>
+                <td>
+                    <a href="{% url 'empresa:editar_categoria' Categorias.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'empresa:eliminar_categoria' Categorias.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h2>NO EXISTEN CATEGORIAS REGISTRADOS </h2>
+<div class="card-header">
+    <div class="col-md-8">
+        <a href="{% url 'empresa:registrar_categoria' %}" class="btn btn-primary">Registrar Categoria</a>
+    </div>
+</div>
+
+{% endif %}
+{% endblock body %}

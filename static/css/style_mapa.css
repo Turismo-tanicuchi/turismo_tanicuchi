@@ -1,0 +1,31 @@
+.container_fomento{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+.container_fomento .card_fomento{
+  width: 900px;
+  height: 700px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 40px;
+  text-align: center;
+  transition: all 0.25s;
+  background-color: #F8F9F9;
+  box-shadow: 15px 15px 10px rgba(0,0,0,0.4);
+}
+
+.container_fomento .card_fomento:hover{
+    transform: translateY(-15px);
+}
+
+.container_fomento .card_fomento iframe{
+  width: 900px;
+  height: 700px;
+}
+
+#map{
+    height: 700px;
+}

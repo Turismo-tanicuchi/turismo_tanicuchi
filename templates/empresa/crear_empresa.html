@@ -1,0 +1,67 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Registro de Empresas
+{% endblock titulo %}
+
+{% block body %}
+<div class="admin col">
+  <div class="card">
+      <h2 class="card-title">Registro de Empresas</h2>
+
+      <form  method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+          {{form.nombre.label_tag}}
+          {{form.nombre}}
+          {{ form.nombre.errors }}
+          </div>
+          <div class="form-group">
+          {{form.direccion.label_tag}}
+          {{form.direccion}}
+          {{ form.direccion.errors }}
+         </div>
+         <div class="form-group">
+          {{form.longitud.label_tag}}
+          {{form.longitud}}
+          {{ form.longitud.errors }}
+         </div>
+         <div class="form-group">
+         {{form.latitud.label_tag}}
+         {{form.latitud}}
+         {{ form.latitud.errors }}
+        </div>
+        <div class="form-group">
+         {{form.descripcion.label_tag}}
+         {{form.descripcion}}
+         {{ form.descripcion.errors }}
+        </div>
+        <div class="form-group">
+        {{form.detalle.label_tag}}
+        {{form.detalle}}
+        {{ form.detalle.errors }}
+       </div>
+       <div class="form-group">
+        {{form.imagen.label_tag}}
+        {{form.imagen}}
+        {{ form.imagen.errors }}
+       </div>
+       {# DESPLIEGE DE LAS categorias QUE PERTENECEN A CIERTA PARROQUIA #}
+       <div class="form-group">
+          {{form.tipo_id.label_tag}}
+          <select name="tipo_id" class="form-control" id="exampleFormControlSelect1">
+            {% for categoria in mostrar_categoria %}
+              {% if categoria.nombre %}
+                <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          {{ form.tipo_id.errors }}
+        </div>
+          <div class="modal-footer">
+            <a href="{% url 'empresa:listado_empresa' %}" class="btn btn-danger" >Cancelar</a>
+            <button class="btn btn-primary" type="submit">Registrar</button>
+          </div>
+      </form>
+    </div>
+</div>
+{% endblock body %}

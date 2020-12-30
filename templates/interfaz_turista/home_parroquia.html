@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col">
+  <h4 class="text-center">{{ message }}</h4>
+  {% include 'parroquias/snippets/search.html' %}
+  {% include 'interfaz_turista/carrusel.html' %}
+</div>
+{% endblock %}

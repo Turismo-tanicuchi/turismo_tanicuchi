@@ -1,0 +1,64 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Listado de Atractivos Naturales
+{% endblock titulo %}
+{% block body %}
+{% if object_list %}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="card-title">Lista de Atractivos Naturales</h2>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-6">
+              <a href="{% url 'atractivos_naturales:registrar_atractivo' %}" class="btn btn-primary">Registrar Atractivo Natural</a>
+            </div>
+        </div>
+    </div>
+    <div class="table-stats order-table ov-h table-responsive-sm" >
+        <table id="tabla_atractivos_naturales" class="table table-hover" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Latitud</th>
+                    <th scope="col">Longitud</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for atractivo in object_list %}
+              <tr>
+                <td>{{atractivo.nombre}}</td>
+                <td>{{atractivo.direccion}}</td>
+                <td>{{atractivo.latitud}}</td>
+                <td>{{atractivo.longitud}}</td>
+                <td>
+                    {% if atractivo.imagen %}
+                      <img src="{{atractivo.imagen.url}}" alt="img">
+                    {% endif %}
+                </td>
+                <td>{{atractivo.tipo_id}}</td>
+                <td>
+                    <a href="{% url 'atractivos_naturales:editar_atractivo' atractivo.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'atractivos_naturales:eliminar_atractivo' atractivo.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h2>NO EXISTEN ATRACTIVOS NATURALES REGISTRADOS </h2>
+<div class="card-header">
+    <div class="col-md-8">
+        <a href="{% url 'atractivos_naturales:registrar_atractivo' %}" class="btn btn-primary">Registrar Atractivo Natural</a>
+    </div>
+</div>
+{% endif %}
+{% endblock body %}

@@ -1,0 +1,25 @@
+/*ESTILOS PARA BARRA DE NAVEGACION*/
+a.navbar-brand img{
+  border-radius: 20px;
+  box-shadow: 13px 13px 10px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+a.navbar-brand img:hover{
+  transform: translateY(-5px);
+  transition: all 0.25s;
+  background-color: #F8F9F9;
+  box-shadow: 15px 15px 10px rgba(0,0,0,0.4);
+}
+
+/*stilos para encabezados*/
+h1{
+  /*text-decoration: underline;*/
+  text-align: center;
+  text-shadow: 5px 5px 5px grey;
+  padding: 10px;
+  font-family: 'Anton', sans-serif;
+
+  font-weight: 700;
+  margin: 60px;
+  font-size: 45px;
+}

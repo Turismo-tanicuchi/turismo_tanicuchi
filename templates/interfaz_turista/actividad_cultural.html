@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  {% if actividad_cultural %}
+  <div class="col-md-12">
+    <h1 class="text-center" >Actividad Cultural</h1>
+  </div>
+  <div class="col">
+      <div class="card-subtarjetas mb-3" style="max-width: 100%;">
+        <div class="row no-gutters py-4">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <br>
+            {% if actividad_cultural.imagen %}
+              <img src="{{actividad_cultural.imagen.url}}" class="card-img" alt="img">
+             {% else %}
+             <h3 class="fas fa-map-marked-alt"></h3>
+             {% endif %}
+          </div>
+          <div class="col-md-6" >
+            <div class="card-body">
+              <h5 class="text-wrap">Parroquia: </h5>
+                <p class="text-justify">{{actividad_cultural.parroquia}}</p>
+              <h5 class="text-wrap">Nombre: </h5>
+                <p class="text-justify">{{actividad_cultural.nombre}}</p>
+              <h5 class="text-wrap">Descripción: </h5>
+                <p class="text-justify">{{actividad_cultural.descripcion}}</p>
+                {% if actividad_cultural.fecha %}
+                  <h5 class="text-wrap">Fecha: </h5>
+                  <p class="text-justify">{{actividad_cultural.fecha}}</p>
+                {% endif %}
+              <h5 class="text-wrap">Dirección: </h5>
+                <p class="text-justify">{{actividad_cultural.direccion}}</p>
+              <a href="{% url 'turista:ver_ubicacion2' actividad_cultural.id %}" class="btn btn-primary">Ver ubicación</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  {% else %}
+  <h1>NO EXISTEN DATOS</h1>
+  {% endif %}
+{% endblock %}

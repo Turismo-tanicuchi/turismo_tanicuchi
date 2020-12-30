@@ -1,0 +1,134 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Datos Parroquia
+{% endblock titulo %}
+{% block body %}
+{% if object_list %}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="card-title text-center">Datos de la Parroquia</h2>
+            </div>
+        </div>
+    </div>
+  {% for parroquia in object_list %}
+    <table id="tabla_atractivos_naturales" class="table table-hover" >
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col" colspan="2"><h2>{{parroquia.nombre_parr}}</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+            <td colspan="2">
+              {% if parroquia.imagen %}
+                <img src="{{parroquia.imagen.url}}" width="350" height="250" alt="parroquia" loading="lazy">
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td><h5 class="card-title">Dirección:</h5></td>
+            <td><p class="card-text text-justify">{{parroquia.direccion}}</p></td>
+          </tr>
+          <tr>
+            <td><h5 class="card-title">Latitud:</h5></td>
+            <td><p class="card-text text-justify">{{parroquia.latitud}}</p></td>
+          </tr>
+          <tr>
+            <td><h5 class="card-title">Longitud:</h5></td>
+            <td><p class="card-text text-justify">{{parroquia.longitud}}</p></td>
+          </tr>
+          <tr>
+            <td colspan="2"><h5 class="card-title">Historia:</h5></td>
+          </tr>
+          <tr>
+            <td colspan="2"><p class="card-text text-justify">{{parroquia.historia}}</p></td>
+          </tr>
+          <tr>
+            <td colspan="2"><h5 class="card-title">Información general:</h5></td>
+          </tr>
+          <tr>
+            <td colspan="2"><p class="card-text text-justify">{{parroquia.info_general}}</p></td>
+          </tr>
+          <tr>
+            <td colspan="2"><h5 class="card-title">Situación geográfica:</h5></td>
+          </tr>
+          <tr>
+            <td colspan="2"><p class="card-text text-justify">{{parroquia.situacion_geografica}}</p></td>
+          </tr>
+          <tr>
+            <td><h5 class="card-title">Email:</h5></td>
+            <td><p class="card-text text-justify">{{parroquia.email}}</p></td>
+          </tr>
+          <tr>
+            <td><h5 class="card-title">Teléfono:</h5></td>
+            <td><p class="card-text text-justify">{{parroquia.telefono}}</p></td>
+          </tr>
+          <tr>
+            <td><h5 class="card-title">Celular:</h5></td>
+            <td><p class="card-text text-justify">{{parroquia.celular}}</p></td>
+          </tr>
+        </tbody>
+    </table>
+    {%if parroquia.pdf %}
+      <a href="{{ parroquia.pdf.url }}" class="btn btn-primary btn-sm mb-2" target="_blank">Ver Pdf</a>
+      <br>
+      {%endif%}
+      <div class="">
+        <div class="col-md-8">
+          <a href="{% url 'parroquias:editar_parroquia' parroquia.id %}" class="btn btn-primary">Editar Información</a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+{% else %}
+<h2>NO EXISTEN DATOS REGISTRADOS </h2>
+{% endif %}
+{% endblock body %}
+
+<!--
+<div class="card-datos_parroquia text-justify">
+  <div class="card-header">
+    <h2>{{parroquia.nombre_parr}}</h2>
+    <br>
+    {% if parroquia.imagen %}
+      <img src="{{parroquia.imagen.url}}" width="150" height="100" alt="parroquia" loading="lazy">
+    {% endif %}
+    <br>
+    <h5 class="card-title">Dirección:</h5>
+    <p class="card-text text-justify">{{parroquia.direccion}}</p>
+
+    <h5 class="card-title">Coordenadas</h5>
+    <h5 class="card-title">Longitud:</h5>
+    <p class="card-text text-justify">{{parroquia.longitud}}</p>
+    <h5 class="card-title">Latitud:</h5>
+    <p class="card-text text-justify">{{parroquia.latitud}}</p>
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Historia</h5>
+    <p class="card-text text-justify">{{parroquia.historia}}</p>
+    <h5 class="card-title">Información general</h5>
+    <p class="card-text text-justify">{{parroquia.info_general}}</p>
+    <h5 class="card-title">Situación geográfica</h5>
+    <p class="card-text text-justify">{{parroquia.situacion_geografica}}</p>
+    <h5 class="card-title">Email</h5>
+    <p class="card-text text-justify">{{parroquia.email}}</p>
+    <h5 class="card-title">Teléfono</h5>
+    <p class="card-text text-justify">{{parroquia.telefono}}</p>
+    <h5 class="card-title">Celular</h5>
+    <p class="card-text text-justify">{{parroquia.celular}}</p>
+    {%if parroquia.pdf %}
+    <a href="{{ parroquia.pdf.url }}" class="btn btn-primary btn-sm mb-2" target="_blank">Ver Pdf</a>
+    <br>
+    {%endif%}
+    <div class="">
+      <div class="col-md-8">
+        <a href="{% url 'parroquias:editar_parroquia' parroquia.id %}" class="btn btn-primary">Editar Información</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+  -->

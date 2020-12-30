@@ -1,0 +1,60 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block titulo %}
+Biblioteca.dev | Listado de Usuarios
+{% endblock titulo %}
+
+{% block body %}
+{% if object_list %}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="card-title">Lista de Usuarios</h2>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <table id="tabla_usuarios" class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>Fotografia</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for usuario in object_list %}
+              <tr>
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.first_name}}</td>
+                <td>{{usuario.last_name}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.direccion}}</td>
+                <td>
+                    {% if usuario.imagen %}
+                      <img src="{{usuario.imagen.url}}" alt="img">
+                    {% else %}
+                    <h3 class="fas fa-user"></h3>
+                    {% endif %}
+                </td>
+                <td>
+                  <a href="{% url 'usuarios:admin_eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h2>NO EXISTEN USUARIOS REGISTRADOS </h2>
+{% endif %}
+{% endblock body %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+  {% include 'navbar_index.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="col">
+  <h4 class="text-center">{{ message }}</h4>
+  <h1 class="font text-center ">Parroquias Rurales de Latacunga</h1>
+  {% include 'parroquias/snippets/search.html' %}
+  {% include 'carrusel.html' %}
+</div>
+{% endblock %}

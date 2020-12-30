@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navbar %}
+  {% include 'navbar_index.html' %}
+{% endblock %}
+{% block content %}
+{% if object_list %}
+  {% for usuario in object_list %}
+    <div class="col-md-12 titulo">
+      <h1 class="text-center" >Mi Perfil</h1>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="card-misdatos mb-3" style="max-width: 800px;">
+      <div class="row no-gutters datos text-center">
+        <div class="col-md-5">
+          <br>
+          {% if usuario.imagen %}
+            <img src="{{usuario.imagen.url}}" class="card-img" alt="img">
+           {% else %}
+           <h3 class="fas fa-user"></h3>
+           {% endif %}
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="text-wrap">Nombres: <span class="font-weight-light">{{usuario.first_name}}</span></h5>
+            <h5 class="text-wrap">Apellidos: <span class="font-weight-light">{{usuario.last_name}}</span></h5>
+            <h5 class="text-wrap">Correo: <span class="font-weight-light">{{usuario.email}}</span></h5>
+            <h5 class="text-wrap">Direccion: <span class="font-weight-light">{{usuario.direccion}}</span></h5>
+          </div>
+        </div>
+        <div class="botones col-md-12 text-center py-2">
+          <a href="{% url 'editar_password' usuario.id %}" class="btn btn-primary">Editar Contraseña</a>
+          <a href="{% url 'editar_mis_datos' usuario.id %}" class="btn btn-primary">Editar Datos</a>
+          <a href="{% url 'eliminar_mis_datos' usuario.id %}" class="btn btn-danger">Eliminar</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+<h1>NO EXISTEN DATOS </h1>
+{% endif %}
+{% endblock %}

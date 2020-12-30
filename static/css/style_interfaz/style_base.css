@@ -1,0 +1,63 @@
+/*estilos para base y otros*/
+body{
+  background: white;
+}
+
+.container{
+  background: #E9E9EC;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 2%;
+
+}
+
+/*stylos carousel_parroquia y carousel.html*/
+.carousel-sect{
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.carousel-sect .carousel-inner{
+  margin-top: 50px;
+}
+.carousel-sect .carousel-inner .carousel-item img{
+  max-width:100%;
+  width:500px;
+  height:500px;
+}
+
+/*PARA EL USUARIO*/
+/*login.html*/
+
+.turista form{
+  padding: 50px;
+}
+.turista .form-group{
+  margin: 10px;
+}
+
+/*stylos misdatos.html*/
+
+.card-misdatos h5{
+  font-size: 19px;
+}
+.card-misdatos .botones{
+  margin: 20px;
+}
+
+
+
+
+/*stylos footer.html*/
+footer .container .row img{
+  border-radius: 3%;
+  height: 160px;
+  width: 150px;
+  padding-top: 20px;
+  margin: 0px;
+  display: flex;
+}
+
+footer a{
+  font-weight: 900;
+}

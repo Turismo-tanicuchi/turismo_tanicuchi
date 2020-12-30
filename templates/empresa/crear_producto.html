@@ -1,0 +1,45 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Registro de Productos
+{% endblock titulo %}
+
+{% block body %}
+<div class="admin col">
+  <div class="card">
+      <h2 class="card-title">Registro de Productos</h2>
+      <form  method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+          {{form.nombre.label_tag}}
+          {{form.nombre}}
+          {{ form.nombre.errors }}
+          </div>
+          <div class="form-group">
+          {{form.detalle.label_tag}}
+          {{form.detalle}}
+          {{ form.detalle.errors }}
+         </div>
+         <div class="form-group">
+          {{form.imagen.label_tag}}
+          {{form.imagen}}
+          {{ form.imagen.errors }}
+         </div>
+         {# DESPLIEGE DE LAS EMPRESAS QUE PERTENECEN A CIERTA PARROQUIA #}
+         <div class="form-group">
+            {{form.empresa.label_tag}}
+            <select name="empresa" class="form-control" id="exampleFormControlSelect1">
+              {% for empresa in mostrar_empresas %}
+                {% if empresa.nombre %}
+                  <option value="{{empresa.id}}">{{empresa.nombre}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          <div class="modal-footer">
+            <a href="{% url 'empresa:listado_producto' %}" class="btn btn-danger" >Cancelar</a>
+            <button class="btn btn-primary" type="submit">Registrar</button>
+          </div>
+      </form>
+    </div>
+</div>
+{% endblock body %}

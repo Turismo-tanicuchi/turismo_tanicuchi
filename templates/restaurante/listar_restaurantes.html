@@ -1,0 +1,66 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block titulo %}
+Biblioteca.dev | Listado de Restaurantes
+{% endblock titulo %}
+
+{% block body %}
+{% if object_list %}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="card-title">Lista de Restaurantes</h2>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'restaurante:registrar_restaurante' %}" class="btn btn-primary">Registrar Restaurante</a>
+            </div>
+        </div>
+    </div>
+    <div class="table-stats order-table ov-h table-responsive-sm" >
+        <table id="tabla_restaurantes" class="table table-hover" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Latitud</th>
+                    <th scope="col">Longitud</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for restaurante in object_list %}
+              <tr>
+                <td>{{restaurante.nombre}}</td>
+                <td>{{restaurante.direccion}}</td>
+                <td>{{restaurante.latitud}}</td>
+                <td>{{restaurante.longitud}}</td>
+                <td>
+                    {% if restaurante.imagen %}
+                      <img src="{{restaurante.imagen.url}}" alt="img">
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'restaurante:editar_restaurante' restaurante.id %}"
+                      class="btn btn-primary">Editar</a>
+                    <a href="{% url 'restaurante:eliminar_restaurante' restaurante.id %}"
+                      class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h2>NO EXISTEN RESTAURANTES REGISTRADOS </h2>
+<div class="card-header">
+    <div class="col-md-8">
+      <a href="{% url 'restaurante:registrar_restaurante' %}" class="btn btn-primary">Registrar Restaurante</a>
+    </div>
+</div>
+{% endif %}
+{% endblock body %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style_interfaz/style_turismo.css'%}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="font text-center ">Turismo</h1>
+    <div class="container_fomento">
+      <div class="card_fomento">
+        <img src="{% static 'images/turismo/atractivos_naturales.jpg'%}">
+        <h4>Atractivos Naturales</h4>
+        <a href="{% url 'turista:atractivos_naturales'%}">Leer más</a>
+      </div>
+
+      <div class="card_fomento">
+        <img src="{% static 'images/turismo/atractivos_culturales.jpg'%}">
+        <h4>Atractivos Culturales</h4>
+        <a href="{% url 'turista:atractivos_culturales'%}">Leer más</a>
+      </div>
+
+      <div class="card_fomento">
+        <img src="{% static 'images/turismo/restaurantes.jpg'%}">
+        <h4>Restaurantes</h4>
+        <a href="{% url 'turista:restaurantes'%}">Leer más</a>
+      </div>
+
+      <div class="card_fomento">
+        <img src="{% static 'images/turismo/alojamiento.jpg'%}">
+        <h4>Alojamiento</h4>
+        <a href="{% url 'turista:alojamiento'%}">Leer más</a>
+      </div>
+
+      <div class="card_fomento">
+        <img src="{% static 'images/turismo/como_llegar.jpg'%}">
+        <h4>Ubicación de la parroquia</h4>
+        <a href="{% url 'turista:ubicacion_parroquia' %}">Ver ubicación</a>
+      </div>
+    </div>
+</div>
+{% endblock %}

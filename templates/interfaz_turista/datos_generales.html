@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col">
+  <h4 class="text-center">{{ message }}</h4>
+  {% for parroquia in mostrar_parroquia %}
+    <h1 class="font text-center ">{{parroquia.nombre_parr}}</h1>
+  {% endfor %}
+  {% include 'parroquias/snippets/search.html' %}
+  {% include 'interfaz_turista/carrusel_parroquia.html' %}
+  {% for parroquia in mostrar_parroquia %}
+    <h2 class="text-center">Datos Generales</h2>
+    <h3>Historia</h3>
+    <p class="text-justify">{{parroquia.historia}}</p>
+    <h3>Información General</h3>
+    <p class="text-justify">{{parroquia.info_general}}</p>
+    <h3>Situación Geográfica</h3>
+    <p class="text-justify">{{parroquia.situacion_geografica}}</p>
+    {%if parroquia.pdf %}
+    <a href="{{ parroquia.pdf.url }}" class="btn btn-primary btn-sm mb-2" target="_blank">Más información</a>
+    <br>
+    {%endif%}
+  {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/style_interfaz/style_productos.css'%}">
+{% endblock %}
+{% block content %}
+  {% if mostrar_productos %}
+  <div class="container-fluid">
+      <h1 class="font text-center ">Productos de la empresa {{empresa.nombre}}</h1>
+      <div class="container_fomento">
+        {% for producto in mostrar_productos %}
+        <div class="card_fomento">
+            {% if producto.imagen %}
+              <img src={{producto.imagen.url}} alt="imagen del producto" height="250">
+            {%else%}
+              <h3 class="fas fa-map-marked-alt"></h3>
+            {% endif %}
+              <h4>{{producto.nombre}}</h4>
+              <p class="text-justify">{{producto.detalle}}</p>
+        </div>
+        {% endfor %}
+      </div>
+   </div>
+  {% else %}
+  <h1>NO EXISTEN DATOS</h1>
+  {% endif %}
+{% endblock %}

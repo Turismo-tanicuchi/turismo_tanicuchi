@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="turista col" >
+  <h2>Registro</h2>
+  <!-- formulario de Django que se crean a partir de clases-->
+  <form  method="post"  >
+    <!-- añado el csrf_token-->
+    {% csrf_token %}
+    <!-- form me dara los label e imput primera forma de pintar campos individuales
+    <div class="form-group">
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </div>
+    <div class="form-group">
+      {{ form.email.label_tag }}
+      {{ form.email }}
+    </div>
+    <div class="form-group">
+      {{ form.password.label_tag }}
+      {{ form.password }}
+    </div>
+    -->
+    {% for field in form %}
+      <div class="form-group" >
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.errors %}
+          {{ field.errors }}
+        {%endif%}
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+</div>
+{% endblock %}

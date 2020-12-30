@@ -1,0 +1,64 @@
+:root{
+  --bkg-red-rose: #b3494d;
+  --orange-lighter: #f59678;
+  --bkg-beige-color: #ffa50040;
+}
+
+/*ESTILOS DEL FOOTER*/
+footer{
+    display: block;
+    text-decoration: none;
+    background-color: white;
+    height: 7rem;
+}
+
+.card{
+    text-align: center;
+
+    width: auto;
+    height: 7rem;
+    border: 0px;
+}
+
+.card .card-img-top{
+      width: 3rem;
+      height: 2.7rem;
+      border-radius: 5%;
+}
+
+.card .card-body .card-text{
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+
+/*
+.container-footer{
+    margin-top: 20px;
+    width: 100%;
+    background: #101010;
+}
+*/
+/*-----------------------------------*/
+
+.terminos{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.copyright{
+    color: #C7C7C7;
+}
+
+.copyright a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.information a{
+    text-decoration: none;
+    color: white;
+}

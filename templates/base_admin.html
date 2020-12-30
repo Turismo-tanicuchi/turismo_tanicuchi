@@ -1,0 +1,175 @@
+{% load static %}
+<!Doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
+    <link rel="stylesheet" href="{% static 'css/cs-skin-elastic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}
+    {% endblock extra_css %}
+</head>
+<body>
+  {% if request.user.usuario_admin %}
+    <!-- Left Panel -->
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div id="main-menu" class="main-menu">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="{% url 'home' %}"><i class="menu-icon fa fa-laptop"></i>Inicio</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Administracion del sitio</a>
+                       <ul class="sub-menu children dropdown-menu">
+                           <li><i class="fa fa-table"></i><a href="{% url 'parroquias:datos_parroquia' %}">Datos de la parroquia</a></li>
+                           <li><i class="far fa-images"></i><a href="{% url 'parroquias:img_parroquia' %}">Imagenes de la parroquia</a></li>
+                       </ul>
+                    </li>
+
+                    <li class="menu-item-has-children dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
+                                class="menu-icon fa fa-users"></i>Usuarios</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="{% url 'usuarios:listar_usuarios' %}">Listado de Usuarios</a></li>
+                            {# <li><i class="fa fa-table"></i><a href="#">Registro de Usuarios</a></li> #}
+                        </ul>
+                    </li>
+                    <li align="center"><a  style="color:#03a9f3;" >Inventario Turistico</a></li>
+                    <li class="menu-item-has-children dropdown">
+                       <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-mountain"></i>Atractivos Naturales</a>
+                       <ul class="sub-menu children dropdown-menu">
+                           <li><i class="fa fa-table"></i><a href="{% url 'atractivos_naturales:listado_atractivos' %}">Listado de Atractivos Naturales</a></li>
+                           <li><i class="fa fa-pencil-alt"></i><a href="{% url 'atractivos_naturales:registrar_atractivo' %}">Registrar Atractivo Natural</a></li>
+                       </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-church"></i>Atractivos Culturales</a>
+                       <ul class="sub-menu children dropdown-menu">
+                           <li><i class="fa fa-table"></i><a href="{% url 'atractivos_culturales:listado_atractivos' %}">Listado de Atractivos Culturales</a></li>
+                           <li><i class="fa fa-pencil-alt"></i><a href="{% url 'atractivos_culturales:registrar_atractivo' %}">Registrar Atractivo Cultural</a></li>
+                       </ul>
+                    </li>
+                    <li align="center"><a  style="color:#03a9f3;" >Catastro Turistico</a></li>
+                    <li class="menu-item-has-children dropdown">
+                       <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-hotel"></i>Alojamiento</a>
+                       <ul class="sub-menu children dropdown-menu">
+                           <li><i class="fa fa-table"></i><a href="{% url 'alojamiento:listar_alojamientos' %}">Listado de Alojamientos</a></li>
+                           <li><i class="fa fa-pencil-alt"></i><a href="{% url 'alojamiento:registrar_alojamiento' %}">Registrar Alojamiento</a></li>
+                       </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-bus"></i>Transporte</a>
+                       <ul class="sub-menu children dropdown-menu">
+                           <li><i class="fa fa-table"></i><a href="{% url 'transporte:listado_transporte' %}">Listado de Transportes</a></li>
+                           <li><i class="fa fa-pencil-alt"></i><a href="{% url 'transporte:registrar_transporte' %}">Registrar Trasporte</a></li>
+                       </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-utensils"></i>Restaurantes</a>
+                       <ul class="sub-menu children dropdown-menu">
+                           <li><i class="fa fa-table"></i><a href="{% url 'restaurante:listar_restaurantes' %}">Listado de Restaurantes</a></li>
+                           <li><i class="fa fa-pencil-alt"></i><a href="{% url 'restaurante:registrar_restaurante' %}">Registrar Restaurante</a></li>
+                       </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fas fa-wallet"></i>Fomento Productivo</a>
+                       <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="{% url 'empresa:listado_categorias_empresa' %}">Listado de Categorias Empresas </a></li>
+                           <li><i class="fa fa-table"></i><a href="{% url 'empresa:listado_empresa' %}">Listado de Empresas </a></li>
+                           <li><i class="fa fa-pencil-alt"></i><a href="{% url 'empresa:registrar_empresa' %}">Registrar Empresa</a></li>
+                           <li><i class="fa fa-table"></i><a href="{% url 'empresa:listado_producto' %}">Listado de Productos </a></li>
+                           <li><i class="fa fa-pencil-alt"></i><a href="{% url 'empresa:registrar_producto' %}">Registrar Productos</a></li>
+
+                       </ul>
+                    </li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside>
+    {% endif %}
+    <!-- /#left-panel -->
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+        <!-- Header-->
+        <header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header">
+                    <a class="navbar-brand">TURISMO RURAL</a>
+                    <a class="navbar-brand hidden" href="{% url 'home' %}">TURISMO RURAL</a>
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="header-menu">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fas fa-user"></span>
+                        </a>
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-power -off"></i>Cerrar Sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+          {% include 'messages.html' %}
+            <div>
+                <div class="row">
+                    <div class="col-lg-12">
+                      {% block body %}
+                        <div class="col-md-12 prueba">
+                            <div class="card bg-primary">
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0 text-light text-center">
+                                        <h1 class="text-light">BIENVENIDO A LA ADMINISTRACIÓN</h1>
+                                        <h1 class="text-light">{{user.first_name}} {{user.last_name}}</h1>
+                                        <footer class="blockquote-footer text-light">"AQUI PUEDES ADMINISTRAR LOS ATRACTIVOS TURISTICOS DE LA PARROQUIA" --</footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                      {% endblock body %}
+                </div>
+            </div>
+        </div>
+        <!-- /.content -->
+        <div class="clearfix"></div>
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-inner bg-white">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Copyright &copy; 2020
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        Diseñado por: <a href="http://www.utc.edu.ec/"> Universidad Técnica de Cotopaxi</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- /.site-footer -->
+    </div>
+    <!-- /#right-panel -->
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/a3cf253dbb.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

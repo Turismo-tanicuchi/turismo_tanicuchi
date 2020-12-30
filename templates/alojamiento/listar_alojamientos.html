@@ -1,0 +1,62 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Listado de Alojamientos
+{% endblock titulo %}
+{% block body %}
+{% if object_list %}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="card-title">Lista de Alojamientos</h2>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'alojamiento:registrar_alojamiento' %}" class="btn btn-primary">Registrar Alojamiento</a>
+            </div>
+        </div>
+    </div>
+    <div class="table-stats order-table ov-h table-responsive-sm" >
+        <table id="tabla_alojamientos" class="table table-hover" >
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Latitud</th>
+                    <th scope="col">Longitud</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for alojamiento in object_list %}
+              <tr>
+                <td>{{alojamiento.nombre}}</td>
+                <td>{{alojamiento.direccion}}</td>
+                <td>{{alojamiento.latitud}}</td>
+                <td>{{alojamiento.longitud}}</td>
+                <td>
+                    {% if alojamiento.imagen %}
+                      <img src="{{alojamiento.imagen.url}}" alt="img">
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'alojamiento:editar_alojamiento' alojamiento.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'alojamiento:eliminar_alojamiento' alojamiento.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h2>NO EXISTEN ALOJAMIENTOS REGISTRADOS </h2>
+<div class="card-header">
+    <div class="col-md-8">
+        <a href="{% url 'alojamiento:registrar_alojamiento' %}" class="btn btn-primary">Registrar Alojamiento</a>
+    </div>
+</div>
+{% endif %}
+{% endblock body %}

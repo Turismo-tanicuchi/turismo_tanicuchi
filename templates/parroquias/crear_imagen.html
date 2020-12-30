@@ -1,0 +1,26 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Registro de imagenes Parroquia
+{% endblock titulo %}
+
+{% block body %}
+<div class="admin col">
+  <div class="card">
+        <h2 class="card-title">Registro de Imagenes de Parroquia</h2>
+      <form  method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            {{form.imagen.label_tag}}
+            {{form.imagen}}
+          </div>
+          <div class="form-group" >
+            {{form.parroquia}}
+          </div>
+          <div class="modal-footer">
+            <a href="{% url 'parroquias:img_parroquia' %}" class="btn btn-danger" >Cancelar</a>
+            <button class="btn btn-primary" type="submit">Registrar</button>
+          </div>
+      </form>
+    </div>
+</div>
+{% endblock body %}

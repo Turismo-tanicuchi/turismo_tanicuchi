@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block navbar %}
+  {% include 'navbar_index.html' %}
+{% endblock %}
+{% block content %}
+<div class=" turista col" style="height: 775px;">
+  <br>
+  <h2 class="text-center">Registro de Usuarios</h2>
+  <!-- creacion del formulario -->
+  <form  method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
+      <div class="modal-footer">
+        <a href="{% url 'usuarios:listar_usuarios' %}" class="btn btn-danger" >Cancelar</a>
+        <button class="btn btn-primary" type="submit">Registrar</button>
+      </div >
+  </form>
+</div>
+{% endblock %}
+
+
+<!--
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-8">
+                <strong class="card-title">Registro  de Usuarios</strong>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+      <form  method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form.as_p}}
+          <div class="modal-footer">
+            <a href="{% url 'usuarios:listar_usuarios' %}" class="btn btn-danger" >Cancelar</a>
+            <button class="btn btn-primary" type="submit">Registrar</button>
+          </div>
+      </form>
+    </div>
+</div>
+
+-->

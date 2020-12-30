@@ -1,0 +1,34 @@
+{% extends 'base_admin.html' %}
+{% block titulo %}
+Biblioteca.dev | Registro de Atractivos Naturales
+{% endblock titulo %}
+
+{% block body %}
+<div class="admin col">
+  <div class="card">
+      <h2 class="card-title">Registro de Atractivos Naturales</h2>
+      <form  method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+           {% for field in form %}
+             <div class="form-group">
+               {% if field.is_hidden %}
+                  {{field}}
+                <!-- le pongo para que acepte el id q recibe el form pero como
+                 el form es hidden no se ve -->
+               {% else %}
+                  {{field.label_tag}}
+                  {{field}}
+                  {% if field.errors %}
+                    {{field.errors}}
+                  {% endif%}
+               {% endif %}
+             </div>
+          {% endfor %}
+          <div class="modal-footer">
+            <a href="{% url 'atractivos_naturales:listado_atractivos' %}" class="btn btn-danger" >Cancelar</a>
+            <button class="btn btn-primary" type="submit">Registrar</button>
+          </div>
+      </form>
+    </div>
+</div>
+{% endblock body %}

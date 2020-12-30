@@ -1,0 +1,55 @@
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color lighten-3 pt-4 ">
+  <!-- Footer Elements -->
+  {% if mostrar_productos %}
+    <div class="container ">
+      <!--Grid row-->
+      <div class="row content_prod ">
+        {% for productos in mostrar_productos %}
+          {% if productos.imagen %}
+          <!--Grid column desde aqui va el for-->
+          <div class="col-lg-2 col-md-6 mb-4">
+            <!--Image-->
+            <center>
+            <div class="view overlay z-depth-1-half">
+              <img src="{{productos.imagen.url}}" class="img-fluid" alt="producto">
+              <a href="">
+                <div class="mask rgba-white-light"></div>
+              </a>
+            </div>
+            </center>
+          </div>
+          <!--Grid column hasta aqui el for-->
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!--Grid row-->
+    </div>
+  {% endif %}
+    <!-- Footer Elements -->
+    <!--Grid rowJAJA-->
+  {% if mostrar_parroquia %}
+    {% for parroquia in mostrar_parroquia %}
+      <div class="justify-content-center d-flex  bd-highlight">
+        <h6>Dirección: <span class="font-weight-light ">{{parroquia.direccion}}</span></h6>
+      </div>
+      <div class="justify-content-center d-flex  bd-highlight">
+        <h6>Email: <span class="font-weight-light">{{parroquia.email}}</span></h6>
+      </div>
+      <div class="justify-content-center d-flex  bd-highlight">
+        <h6>Teléfono: <span class="font-weight-light">{{parroquia.telefono}} -
+          {% if parroquia.celular %}
+            {{parroquia.celular}}
+          {% endif %}
+        </span></h6>
+      </div>
+    {% endfor %}
+  {% endif %}
+  <!--Grid row-->
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-2">© 2020 Copyright:
+    <a href="http://www.utc.edu.ec/"> Universidad Técnica de Cotopaxi</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

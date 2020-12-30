@@ -1,0 +1,95 @@
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/navbar_index.css'%}">
+{% endblock %}
+
+{% url 'login' as login %}
+{% url 'register' as register %}
+
+<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+  <a class="navbar-brand" href="{% url 'index' %}">
+    <img src="{% static 'images/logo.jpg'%}" width="150" height="100" alt="turismo" loading="lazy" >
+  </a>
+
+  <!-- boton q aparece cuando es pantalla pequeña -->
+  <button type="button" name="button" class="navbar-toggler navbar-toggler-right"
+   data-toggle="collapse" data-target="#navb">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+ <!-- menu -->
+  <div id="navb" class="navbar-collapse collapse hide" style="font-size: 20px;">
+    <ul class="nav navbar-nav ml-auto">
+      <li class="navbar-item">
+        <a href="{% url 'index' %}" class ="nav-link">
+          <span class="fas fa-home"></span>
+          Inicio</a>
+      </li>
+      <li class="navbar-item">
+        <a href="{% url 'turista:datos_parroquia'%}" class ="nav-link">
+          <span class="fab fa-elementor"></span>
+          Datos Generales</a>
+      </li>
+
+      <li class="navbar-item">
+        <a href="{% url 'turista:turismo' %}" class ="nav-link">
+          <span class="fas fa-map-signs"></span>
+          Turismo</a>
+      </li>
+
+      <li class="navbar-item">
+        <a href="{% url 'turista:fomento_productivo' %}" class ="nav-link">
+          <span class="fab fa-buffer"></span>
+          Fomento Productivo</a>
+      </li>
+
+      <!-- saber si esta autenticado -->
+      {% if user.is_authenticated %}
+          <!-- si esta mostramos logeados muestro logaut y administracion-->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                <span class="fas fa-user"></span>
+                Usuario
+              </a>
+              <div class="dropdown-menu dropdown-menu-lg-right">
+                  {% if user.usuario_admin == True %}
+                  <a class="dropdown-item" href="{% url 'home' %}">
+                    <span class="fas fa-user-cog"></span>
+                    Administración</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'mis_datos' %}">
+                    <span class="fas fa-user-cog"></span>
+                    Mi perfil</a>
+                    {% else %}
+                    <a class="dropdown-item" href="{% url 'mis_datos' %}">
+                      <span class="fas fa-user-cog"></span>
+                      Mi perfil</a>
+                  {% endif %}
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'logout' %}">
+                    <span class="fas fa-sign-in-alt"></span>
+                    Cerrar Sesión</a>
+              </div>
+            </li>
+      {% else %}
+        <!-- si no esta logeado mostramos register y login -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+              <span class="fas fa-user"></span>
+              Usuario
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right">
+              <a class="dropdown-item" href="{% url 'login' %}">
+                <span class="fas fa-user"></span>
+                Iniciar Sesión</a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'registrar_usuario' %}">
+                <span class="fas fa-user-plus"></span>
+                Registrarse</a>
+            </div>
+          </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
