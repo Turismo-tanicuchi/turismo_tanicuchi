@@ -1,0 +1,107 @@
+{% extends 'superadministracion/superadmin.html' %}
+{% block titulo %}
+Biblioteca.dev | Listado de Usuarios
+{% endblock titulo %}
+
+{% block body %}
+{% if object_list %}
+<div class="card">
+    <div class="card-header text-center">
+          <h2 class="card-title">Lista de Usuarios</h2>
+    </div>
+    <div class="card-header">
+          <h3 class="card-title"> Usuarios administradores</h3>
+    </div>
+
+    <div class="table-stats order-table ov-h">
+        <table id="tabla_usuarios" class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Administrador</th>
+                    <th>Fotografia</th>
+                    <th>Contraseña</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for usuario in object_list %}
+                {% if usuario.usuario_admin == True %}
+                <tr>
+                  <td>{{usuario.first_name}}</td>
+                  <td>{{usuario.last_name}}</td>
+                  <td>{{usuario.email}}</td>
+                  <td><h4 class="fas fa-check-circle"></h4></td>
+                  <td>
+                      {% if usuario.imagen %}
+                        <img src="{{usuario.imagen.url}}" alt="img">
+                      {% else %}
+                      <h3 class="fas fa-user"></h3>
+                      {% endif %}
+                  </td>
+                  <td>
+                    <a href="{% url 'superadministracion:nueva_password' usuario.id %}" class="btn btn-warning">Nueva contraseña</a>
+                  </td>
+                  <td>
+                    <a href="{% url 'superadministracion:editar_usuario' usuario.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'superadministracion:eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+                  </td>
+                </tr>
+                {% endif %}
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {#otros usuarios#}
+    <div class="card-header">
+          <h3 class="card-title"> Otros Usuarios</h3>
+    </div>
+
+    <div class="table-stats order-table ov-h">
+        <table id="tabla_usuarios" class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Administrador</th>
+                    <th>Fotografia</th>
+                    <th>Contraseña</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for usuario in object_list %}
+                {% if usuario.usuario_admin == False %}
+                <tr>
+                  <td>{{usuario.first_name}}</td>
+                  <td>{{usuario.last_name}}</td>
+                  <td>{{usuario.email}}</td>
+                  <td><h4 class="fas fa-times-circle"></h4></td>
+                  <td>
+                      {% if usuario.imagen %}
+                        <img src="{{usuario.imagen.url}}" alt="img">
+                      {% else %}
+                      <h3 class="fas fa-user"></h3>
+                      {% endif %}
+                  </td>
+                  <td>
+                    <a href="{% url 'superadministracion:nueva_password' usuario.id %}" class="btn btn-warning">Nueva contraseña</a>
+                  </td>
+                  <td>
+                    <a href="{% url 'superadministracion:editar_usuario' usuario.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'superadministracion:eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+                  </td>
+                </tr>
+                {% endif %}
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h2>NO EXISTEN USUARIOS REGISTRADOS </h2>
+{% endif %}
+{% endblock body %}

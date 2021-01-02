@@ -1,0 +1,51 @@
+{% extends 'superadministracion/superadmin.html' %}
+{% block titulo %}
+Biblioteca.dev | Listado de Parroquias
+{% endblock titulo %}
+
+{% block body %}
+{% if object_list %}
+<div class="card">
+    <div class="card-header text-center">
+          <h2 class="card-title">Lista de Parroquias</h2>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <table id="tabla_parroquias" class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>E-mail</th>
+                    <th>telefono</th>
+                    <th>Imagen</th>
+                    <th>Administrador</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for parroquia in object_list %}
+                <tr>
+                  <td>{{parroquia.nombre_parr}}</td>
+                  <td>{{parroquia.email}}</td>
+                  <td>{{parroquia.telefono}}</td>
+                  <td>
+                      {% if parroquia.imagen %}
+                        <img src="{{parroquia.imagen.url}}" alt="img">
+                      {% else %}
+                      <h3 class="fas fa-place-of-worship"></h3>
+                      {% endif %}
+                  </td>
+                  <td>{{parroquia.administrador}}</td>
+                  <td>
+                    <a href="{% url 'superadministracion:editar_parroquia' parroquia.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'superadministracion:eliminar_parroquia' parroquia.id %}" class="btn btn-danger">Eliminar</a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<h2>NO EXISTEN USUARIOS REGISTRADOS </h2>
+{% endif %}
+{% endblock body %}

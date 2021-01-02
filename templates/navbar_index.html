@@ -62,19 +62,30 @@
                 Usuario
               </a>
               <div class="dropdown-menu dropdown-menu-lg-right">
-                {% if user.usuario_admin == True %}
-                <a class="dropdown-item" href="{% url 'home' %}">
+              {# verificamos si es super superadmin #}
+                {% if user.is_superuser == True %}
+                <a class="dropdown-item" href="{% url 'superadministracion:superadmin' %}">
                   <span class="fas fa-user-cog"></span>
-                  Administración</a>
-
+                  Super Administración</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{% url 'mis_datos' %}">
                   <span class="fas fa-user-cog"></span>
                   Mi perfil</a>
-               {% else %}
-               <a class="dropdown-item" href="{% url 'mis_datos' %}">
-                 <span class="fas fa-user-cog"></span>
-                 Mi perfil</a>
+              {% else %}
+                {% if user.usuario_admin == True %}
+                  <a class="dropdown-item" href="{% url 'home' %}">
+                    <span class="fas fa-user-cog"></span>
+                    Administración</a>
+
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'mis_datos' %}">
+                    <span class="fas fa-user-cog"></span>
+                    Mi perfil</a>
+                 {% else %}
+                   <a class="dropdown-item" href="{% url 'mis_datos' %}">
+                     <span class="fas fa-user-cog"></span>
+                   Mi perfil</a>
+                 {% endif %}
                {% endif %}
                <div class="dropdown-divider"></div>
                <a class="dropdown-item" href="{% url 'logout' %}">

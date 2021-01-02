@@ -15,6 +15,8 @@ urlpatterns = [
 
     #administrador de django
     path('admin/', admin.site.urls),
+    #app de superadministracion
+    path('superadministracion/',include(('superadministracion.urls','superadministracion'))),
     #sitio-administrador
     path('administrador/index', login_required(views.home_view), name='home'),
     #************************ dedicadas al usuario ******************

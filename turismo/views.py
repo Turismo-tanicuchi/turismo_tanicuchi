@@ -2,7 +2,7 @@ from django.shortcuts import render
 from parroquias.models import Parroquia
 from empresa.models import Producto
 
-
+#para el administrador
 def home_view(request):
     user = request.user.id if request.user.is_authenticated else None
     parroquia=Parroquia.objects.get(administrador__id=user)
@@ -12,7 +12,7 @@ def home_view(request):
     return render(request,'base_admin.html',{
     #context
     })
-
+#para el turista
 def index_view(request):
     parroquias=Parroquia.objects.all()
     productos=Producto.objects.all()[:7]

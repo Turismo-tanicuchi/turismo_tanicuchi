@@ -5,13 +5,11 @@
     <div id="home-carousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         {% for n in listado_parroquias %}
-          {% if n.imagen %}
             {% if forloop.first %}
             <li data-target="#home-carousel" data-slide-to="{{ forloop.counter0}}" class="active"></li>
             {% else %}
             <li data-target="#home-carousel" data-slide-to="{{ forloop.counter0 }}"></li>
             {% endif %}
-          {% endif %}
         {% endfor %}
       </ol>
       <div class="carousel-inner">
@@ -33,7 +31,21 @@
               </div>
             {% endif %}
           {%else%}
-            <h6 class="text-center">no hay imagen de la parroquia {{imagen_parroquia.nombre_parr}}</h6>
+            {% if forloop.first %}
+              <div class="carousel-item active">
+                <img src="{% static 'images/avatar_parroquia.jpg'%}" class="d-block w-100" alt="avatar">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{imagen_parroquia.nombre_parr}}</h5>
+                </div>
+              </div>
+            {% else %}
+              <div class="carousel-item">
+                <img src="{% static 'images/avatar_parroquia.jpg'%}" class="d-block w-100" alt="avatar">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{imagen_parroquia.nombre_parr}}</h5>
+                </div>
+              </div>
+            {% endif %}
           {%endif%}
         {% endfor %}
       </div>

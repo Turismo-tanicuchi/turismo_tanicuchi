@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'parroquias',
     'usuario',
+    'superadministracion',
     'atractivos_naturales',
     'atractivos_culturales',
     'alojamiento',
