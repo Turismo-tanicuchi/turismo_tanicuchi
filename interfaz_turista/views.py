@@ -220,6 +220,8 @@ def ubicacion_parroquia(request):
     valor = request.session.get('parroquia_id')
     info_parroquia=Parroquia.objects.filter(slug=valor)
     parroquia=Parroquia.objects.get(slug=valor)
+    atractivos_naturales=AtractivoCultural.objects.all()
+    atractivos_culturales=AtractivoNatural.objects.all()
     return render(request,'mapas/ver_ubicacion.html',{
      'mostrar_ubicacion':parroquia,
      'mostrar_parroquia':info_parroquia,
@@ -234,3 +236,16 @@ class ImagenesAtrNatural(ListView):
         total_atractivos = ImagenesAtractivoNatural.objects.all().count()
         context['count'] = total_atractivos
         return context
+
+#Bryan Sandoval mapa turistico *
+def mapa_turistico(request):
+    productos=Producto.objects.all()[:7]
+    info_parroquia=Parroquia.objects.all()
+    naturales=AtractivoNatural.objects.all()
+    culturales=AtractivoCultural.objects.all()
+    return render(request,'mapas/mapa_turistico.html',{
+        'mostrar_productos':productos,
+        'listado_parroquias':info_parroquia,
+        'atractivos_naturales':naturales,
+        'atractivos_culturales':culturales,
+    })

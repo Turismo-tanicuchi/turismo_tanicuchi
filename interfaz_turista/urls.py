@@ -37,5 +37,6 @@ urlpatterns = [
     path('ubicacion_parroquia/', views.ubicacion_parroquia, name='ubicacion_parroquia'),
     #****** fin de implementacion *****************
     path('imagenes/',ImagenesAtrNatural.as_view(),name ='imagenes'),
-
+    # vista de mapa turistico
+    path('mapa_turistico/',views.mapa_turistico,name ='mapa_turistico'),
 ]
