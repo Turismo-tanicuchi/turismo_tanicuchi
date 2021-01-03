@@ -48,18 +48,6 @@ class MostrarParroquias(ListView):
     template_name = 'superadministracion/mostrar_parroquia.html'
     queryset = Parroquia.objects.all().order_by('nombre_parr')
 
-#class CrearParroquia(CreateView):
-#    model = Parroquia
-#    form_class = FormularioParroquia
-#    template_name = 'superadministracion/crear_parroquia.html'
-#    success_url = reverse_lazy('superadministracion:mostrar_parroquias')
-
-#class ActualizarParroquia(UpdateView):
-#    model = Parroquia
-#    template_name = 'superadministracion/crear_parroquia.html'
-#    form_class = FormularioParroquia
-#    success_url = reverse_lazy('superadministracion:mostrar_parroquias')
-
 def registrar_parroquia(request):
     usuarios = Usuario.objects.filter(usuario_admin=True).order_by('email')
     if request.user.is_superuser == True:
@@ -71,7 +59,7 @@ def registrar_parroquia(request):
                 messages.success(request,'Almacenado exitosamente')
                 return redirect('superadministracion:mostrar_parroquias')
             else:
-                messages.success(request,'no se pudo')
+                messages.success(request,'No se pudo crear el registro')
         #si la peticion es por get mando por defecto el id de la parroquia
         else:
             form = FormularioParroquia({

@@ -4,10 +4,21 @@
 {% endblock titulo %}
 
 {% block body %}
-<form method="post">
-  {% csrf_token %}
-  <p><strong>¿Desea eliminar el registro {{ object }}?</strong></p>
-  <button type="submit" class="btn btn-danger">Confirmar</button>
-  <a href="{% url 'atractivos_culturales:listado_atractivos' %}" class="btn btn-primary" >Cancelar</a>
-</form>
+<div class="col-md-12 prueba">
+  <div class="card">
+    <div class="card-body">
+      <div class="card text-dark bg-light mb-3 text-center" style="max-width: 30rem;">
+        <form method="post">
+          {% csrf_token %}
+          <p><strong>¿Desea eliminar el registro {{ object }}?</strong></p>
+          <div class="alert alert-danger text-center" role="alert">
+           Todos los objetos y sus elementos relacionados serán borrados.
+          </div>
+          <button type="submit" class="btn btn-danger">Confirmar</button>
+          <a href="{% url 'atractivos_culturales:listado_atractivos' %}" class="btn btn-primary" >Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock body %}

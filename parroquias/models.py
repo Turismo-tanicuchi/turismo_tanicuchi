@@ -19,7 +19,7 @@ class Parroquia(models.Model):
     telefono = models.CharField('Teléfono',max_length=10)
     celular = models.CharField('Celular',max_length=10,blank=True, null=True)
     pdf = models.FileField('pdf',upload_to='documentos/', blank=True, null=True)
-    administrador = models.ForeignKey(Usuario, on_delete=models.CASCADE, verbose_name="administrador")
+    administrador = models.OneToOneField(Usuario, on_delete=models.CASCADE, verbose_name="administrador")
 
     # para conocer cuanto una parroquias se Registro
     created_at = models.DateTimeField(auto_now_add=True)
