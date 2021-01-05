@@ -6,7 +6,10 @@ from usuario.models import Usuario
 from usuario.forms import FormularioEditarPasswordUsuario
 from parroquias.models import Parroquia
 from django.contrib import messages
-# Create your views here.
+# tipos de atractivos.
+from atractivos_naturales.models import TipoAN
+from atractivos_culturales.models import TipoAC
+from superadministracion.forms import Formulario_tipo_natural,Formulario_tipo_cultural
 
 def home_superadmin(request):
     return render(request,'superadministracion/superadmin.html',{
@@ -99,3 +102,49 @@ class EliminarParroquia(DeleteView):
     model = Parroquia
     template_name = 'superadministracion/eliminar_parroquia.html'
     success_url = reverse_lazy('superadministracion:mostrar_parroquias')
+
+# tipos de atractivos naturales
+class MostrarTiposNaturales(ListView):
+    model = TipoAN
+    template_name = 'superadministracion/mostrar_tipo.html'
+    queryset = TipoAN.objects.all().order_by('nombre_tipo_an')
+
+class CrearTipoNatural(CreateView):
+    model = TipoAN
+    form_class = Formulario_tipo_natural
+    template_name = 'superadministracion/crear_tipoN.html'
+    success_url = reverse_lazy('superadministracion:mostrar_tipo_Natural')
+
+class ActualizarTipoNatural(UpdateView):
+    model = TipoAN
+    template_name = 'superadministracion/crear_tipoN.html'
+    form_class = Formulario_tipo_natural
+    success_url = reverse_lazy('superadministracion:mostrar_tipo_Natural')
+
+class EliminarTipoNatural(DeleteView):
+    model = TipoAN
+    template_name = 'superadministracion/eliminar_tipoN.html'
+    success_url = reverse_lazy('superadministracion:mostrar_tipo_Natural')
+
+# tipos de atractivos culturales
+class MostrarTiposCulturales(ListView):
+    model = TipoAC
+    template_name = 'superadministracion/mostrar_tipoC.html'
+    queryset = TipoAC.objects.all().order_by('nombre_tipo_ac')
+
+class CrearTipoCultural(CreateView):
+    model = TipoAC
+    form_class = Formulario_tipo_cultural
+    template_name = 'superadministracion/crear_tipoN.html'
+    success_url = reverse_lazy('superadministracion:mostrar_tipo_cultural')
+
+class ActualizarTipoCultural(UpdateView):
+    model = TipoAC
+    template_name = 'superadministracion/crear_tipoN.html'
+    form_class = Formulario_tipo_cultural
+    success_url = reverse_lazy('superadministracion:mostrar_tipo_cultural')
+
+class EliminarTipoCultural(DeleteView):
+    model = TipoAC
+    template_name = 'superadministracion/eliminar_tipoC.html'
+    success_url = reverse_lazy('superadministracion:mostrar_tipo_cultural')

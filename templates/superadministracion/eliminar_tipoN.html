@@ -1,0 +1,25 @@
+{% extends 'superadministracion/superadmin.html' %}
+{% block titulo %}
+  Biblioteca.dev | confirmación de Eliminación
+{% endblock titulo %}
+
+{% block body %}
+<div class="col-md-12 prueba">
+  <div class="card">
+    <div class="card-body">
+      <div class="card text-dark bg-light mb-3 text-center" style="max-width: 30rem;">
+        <form method="post">
+          {% csrf_token %}
+          <p><strong>¿Desea eliminar el registro {{ object }}?</strong></p>
+          <div class="alert alert-danger text-center" role="alert">
+           Todos los objetos y sus elementos relacionados serán borrados,
+           si elimina este administrador tambien se eliminara la parroquia que administra
+          </div>
+          <button type="submit" class="btn btn-danger">Confirmar</button>
+          <a href="{% url 'superadministracion:mostrar_tipo_Natural' %}" class="btn btn-primary" >Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

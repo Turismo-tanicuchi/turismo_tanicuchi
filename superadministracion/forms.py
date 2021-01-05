@@ -2,6 +2,9 @@ from django import forms
 from usuario.models import Usuario
 from django.contrib.auth.forms import AuthenticationForm
 from parroquias.models import Parroquia
+# tipos de atractivos.
+from atractivos_naturales.models import TipoAN
+from atractivos_culturales.models import TipoAC
 
 class FormularioUsuario(forms.ModelForm):
     #si quiro un campo extra lo puedo definir aqui
@@ -206,6 +209,52 @@ class FormularioParroquia(forms.ModelForm):
                 attrs = {
                     'class': 'form-control',
                     'placeholder': 'Teléfono',
+                }
+            ),
+        }
+
+class Formulario_tipo_natural(forms.ModelForm):
+    class Meta:
+        model = TipoAN
+        fields = ('nombre_tipo_an','descripcion')
+        labels = {
+            #como quiero que se vean los labels
+            'nombre_tipo_an': 'Nombre del tipo de atractivo',
+            'descripcion':'Descripción del tipo de atractivo (Opcional)',
+        }
+        widgets = {
+            'nombre_tipo_an': forms.TextInput(
+                attrs = {
+                    'class': 'form-control',
+                    'placeholder': 'Tipo de atractivo',
+                }
+            ),
+            'descripcion': forms.TextInput(
+                attrs = {
+                    'class': 'form-control',
+                }
+            ),
+        }
+
+class Formulario_tipo_cultural(forms.ModelForm):
+    class Meta:
+        model = TipoAC
+        fields = ('nombre_tipo_ac','descripcion')
+        labels = {
+            #como quiero que se vean los labels
+            'nombre_tipo_ac': 'Nombre del tipo de atractivo',
+            'descripcion':'Descripción del tipo de atractivo (Opcional)',
+        }
+        widgets = {
+            'nombre_tipo_ac': forms.TextInput(
+                attrs = {
+                    'class': 'form-control',
+                    'placeholder': 'Tipo de atractivo',
+                }
+            ),
+            'descripcion': forms.TextInput(
+                attrs = {
+                    'class': 'form-control',
                 }
             ),
         }

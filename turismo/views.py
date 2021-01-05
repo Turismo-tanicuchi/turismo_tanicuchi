@@ -8,7 +8,7 @@ def home_view(request):
     parroquia=Parroquia.objects.get(administrador__id=user)
     request.session['pk_parroquia']=parroquia.id #almacenamos en secion el pk de la parroquia
     valor = request.session.get('pk_parroquia')
-    print(valor)
+    #print(valor)
     return render(request,'base_admin.html',{
     #context
     })
