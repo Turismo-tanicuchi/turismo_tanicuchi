@@ -27,7 +27,7 @@ def datos_parroquia(request, slug):
     consulta_imagenes = ImagenesParroquia.objects.filter(parroquia__slug=slug)
     request.session['parroquia_id']=slug
     valor = request.session.get('parroquia_id')
-    print(valor)
+    #print(valor)
     productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=slug)[:7]
     return render(request,'interfaz_turista/datos_generales.html',{
         'mostrar_parroquia':info_parroquia,
@@ -61,7 +61,7 @@ def atractivos_naturales(request):
     valor = request.session.get('parroquia_id')
     #print(valor)
     atrac_naturales=AtractivoNatural.objects.filter(parroquia__slug=valor)
-    print(atrac_naturales)
+    #print(atrac_naturales)
     info_parroquia=Parroquia.objects.filter(slug=valor)
     #consulta_imagenes = ImagenesAtractivoNatural.objects.filter(atractivonatural__id=atrac_naturales.id)
     #print(atrac_naturales)
