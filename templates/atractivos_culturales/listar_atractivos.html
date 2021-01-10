@@ -33,16 +33,16 @@ Biblioteca.dev | Listado de Atractivos Culturales
             <tbody>
               {% for atractivo in object_list %}
               <tr>
-                <td>{{atractivo.nombre}}</td>
-                <td>{{atractivo.direccion}}</td>
+                <td style="width: 15%;">{{atractivo.nombre}}</td>
+                <td style="width: 15%;">{{atractivo.direccion}}</td>
                 <td>{{atractivo.latitud}}</td>
-                <td>{{atractivo.longitud}}</td>  
+                <td>{{atractivo.longitud}}</td>
                 <td>
                     {% if atractivo.imagen %}
                       <img src="{{atractivo.imagen.url}}" alt="img">
                     {% endif %}
                 </td>
-                <td>{{atractivo.tipo_id}}</td>
+                <td class="text-justify"style="width: 12%;">{{atractivo.tipo_id}}</td>
                 <td>
                     <a href="{% url 'atractivos_culturales:editar_atractivo' atractivo.id %}" class="btn btn-primary">Editar</a>
                     <a href="{% url 'atractivos_culturales:eliminar_atractivo' atractivo.id %}" class="btn btn-danger">Eliminar</a>

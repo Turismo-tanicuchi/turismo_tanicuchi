@@ -28,7 +28,7 @@ def datos_parroquia(request, slug):
     request.session['parroquia_id']=slug
     valor = request.session.get('parroquia_id')
     #print(valor)
-    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=slug)[:7]
+    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=slug)[:6]
     return render(request,'interfaz_turista/datos_generales.html',{
         'mostrar_parroquia':info_parroquia,
         'mostrar_imagenes' : consulta_imagenes,
@@ -41,7 +41,7 @@ def datos_generales(request):
     #print(valor)
     info_parroquia=Parroquia.objects.filter(slug=valor)
     consulta_imagenes = ImagenesParroquia.objects.filter(parroquia__slug=valor)
-    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:7]
+    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:6]
     return render(request,'interfaz_turista/datos_generales.html',{
         'mostrar_parroquia':info_parroquia,
         'mostrar_imagenes' : consulta_imagenes,
@@ -51,7 +51,7 @@ def datos_generales(request):
 def turismo(request):
     valor = request.session.get('parroquia_id')
     info_parroquia=Parroquia.objects.filter(slug=valor)
-    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:7]
+    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:6]
     return render(request,'interfaz_turista/turismo.html',{
         'mostrar_productos':productos,
         'mostrar_parroquia':info_parroquia,
@@ -98,7 +98,7 @@ def actividad_cultural(request,id):
     valor = request.session.get('parroquia_id')
     #para poder volver a reutilizar la consulta hago la consulta con filter
     info_parroquia=Parroquia.objects.filter(slug=valor)
-    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:7]
+    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:6]
     return render(request,'interfaz_turista/actividad_cultural.html',{
         'actividad_cultural':actividad_cultural,
         'mostrar_productos':productos,
@@ -160,7 +160,7 @@ def fomento_productivo(request):
     valor = request.session.get('parroquia_id')
     consulta_categorias=TipoEmp.objects.filter(parroquia__slug=valor)
     info_parroquia=Parroquia.objects.filter(slug=valor)
-    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:7]
+    productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:6]
     #print(consulta_categorias)
     return render(request,'interfaz_turista/fomento_productivo.html',{
         'mostrar_categorias':consulta_categorias,
@@ -205,7 +205,7 @@ def productos(request, id):
     })
 #Magaly Sarco implementacion de calendar *
 def actividades(request):
-    productos=Producto.objects.all()[:7]
+    productos=Producto.objects.all()[:6]
     actividades_culturales=AtractivoCultural.objects.all()
     info_parroquia=Parroquia.objects.all()
     #print(actividades_culturales)
@@ -239,7 +239,7 @@ class ImagenesAtrNatural(ListView):
 
 #Bryan Sandoval mapa turistico *
 def mapa_turistico(request):
-    productos=Producto.objects.all()[:7]
+    productos=Producto.objects.all()[:6]
     info_parroquia=Parroquia.objects.all()
     naturales=AtractivoNatural.objects.all()
     culturales=AtractivoCultural.objects.all()

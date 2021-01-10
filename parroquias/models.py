@@ -6,8 +6,8 @@ import uuid
 # Create your models here.
 
 class Parroquia(models.Model):
-    nombre_parr = models.CharField('Nombre de la parroquia',max_length=50, unique=True)
-    direccion = models.CharField('Dirección',max_length=50)
+    nombre_parr = models.CharField('Nombre de la parroquia',max_length=100, unique=True)
+    direccion = models.CharField('Dirección',max_length=100)
     latitud = models.CharField(max_length=200,blank=True, null=True)
     longitud = models.CharField(max_length=200,blank=True, null=True)
     slug = models.SlugField(null=False, blank=False, unique=True)

@@ -37,7 +37,7 @@
       var nombre= document.getElementById('nombre').textContent;
       var latitud= parseFloat(document.getElementById('latitud').textContent);
       var longitud= parseFloat(document.getElementById('longitud').textContent);
-      console.log(nombre)
+      console.log(nombre);
       console.log(latitud);
       console.log(longitud);
       google.maps.event.addDomListener(window, "load", function () {
@@ -58,6 +58,8 @@
           animation: google.maps.Animation.Drop,
           title: nombre,
         });
+      });
+
     </script>
 {% endblock javascript %}
 

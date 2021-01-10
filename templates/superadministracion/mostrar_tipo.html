@@ -29,7 +29,7 @@ Biblioteca.dev | Listado de tipos de atractivo
               {% for atractivo in object_list %}
               <tr>
                 <td>{{atractivo.nombre_tipo_an}}</td>
-                <td>{{atractivo.descripcion}}</td>
+                <td class="text-justify"style="width: 45.50%;">{{atractivo.descripcion}}</td>
                 <td>
                     <a href="{% url 'superadministracion:editar_tipo_natural' atractivo.id %}" class="btn btn-primary">Editar</a>
                     <a href="{% url 'superadministracion:eliminar_tipo_natural' atractivo.id %}" class="btn btn-danger">Eliminar</a>

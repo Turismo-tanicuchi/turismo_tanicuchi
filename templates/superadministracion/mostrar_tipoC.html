@@ -28,8 +28,8 @@ Biblioteca.dev | Listado de tipos de atractivo
             <tbody>
               {% for atractivo in object_list %}
               <tr>
-                <td>{{atractivo.nombre_tipo_ac}}</td>
-                <td>{{atractivo.descripcion}}</td>
+                <td style="width: 25.50%;">{{atractivo.nombre_tipo_ac}}</td>
+                <td class="text-justify"style="width: 45.50%;">{{atractivo.descripcion}}</td>
                 <td>
                     <a href="{% url 'superadministracion:editar_tipo_cultural' atractivo.id %}" class="btn btn-primary">Editar</a>
                     <a href="{% url 'superadministracion:eliminar_tipo_cultural' atractivo.id %}" class="btn btn-danger">Eliminar</a>

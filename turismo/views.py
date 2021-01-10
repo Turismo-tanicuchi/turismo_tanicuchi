@@ -15,7 +15,7 @@ def home_view(request):
 #para el turista
 def index_view(request):
     parroquias=Parroquia.objects.all()
-    productos=Producto.objects.all()[:7]
+    productos=Producto.objects.all()[:6]
     #print(parroquias)
     return render(request,'index.html',{
     #context lista de parroquias

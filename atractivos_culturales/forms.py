@@ -15,7 +15,7 @@ class FormularioAtractivoCultural(forms.ModelForm):
             'longitud':'Coordenadas Longitud',
             'imagen': 'Imagen',
             'tipo': 'Elija el tipo',
-            'fecha': 'Engrese la fecha si se trata de una festividad',
+            'fecha': 'Engrese la fecha si se trata de una festividad (año-mes-dia ejm 2021-11-20)',
             'parroquia': 'Elige la parroquia'
         }
         widgets = {
