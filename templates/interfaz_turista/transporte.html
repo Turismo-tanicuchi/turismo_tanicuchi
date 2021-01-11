@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/style_interfaz/style_cards.css'%}">
+{% endblock %}
+
+{% block content %}
+  {% if mostrar_transporte %}
+  <div class="col-md-12">
+    <h1 class="text-center" >Medios de transporte</h1>
+  </div>
+  <div class="col">
+      {% for transporte in mostrar_transporte %}
+      <div class="card-subtarjetas mb-3" style="max-width: 100%;">
+        <div class="row no-gutters py-4">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <br>
+            {% if transporte.imagen %}
+              <img src="{{transporte.imagen.url}}" class="card-img" alt="img">
+             {% else %}
+             <h3 class="fas fa-map-marked-alt"></h3>
+             {% endif %}
+          </div>
+          <div class="col-md-6" >
+            <div class="card-body">
+              <h5 class="text-wrap">Nombre: </h5>
+                <p class="text-justify">{{transporte.nombre}}</p>
+              <h5 class="text-wrap">Ruta: </h5>
+                <p class="text-justify">{{transporte.ruta}}</p>
+              {% if transporte.observaciones %}
+              <h5 class="text-wrap">Observaciones: </h5>
+                <p class="text-justify">{{transporte.observaciones}}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  {% else %}
+  <h1>NO EXISTEN DATOS</h1>
+  {% endif %}
+{% endblock %}

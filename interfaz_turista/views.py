@@ -7,6 +7,7 @@ from atractivos_naturales.models import ImagenesAtractivoNatural
 from django.shortcuts import render
 from atractivos_naturales.models import AtractivoNatural,ImagenesAtractivoNatural
 from atractivos_culturales.models import AtractivoCultural
+from transporte.models import Transporte
 from alojamiento.models import Alojamiento
 from empresa.models import TipoEmp,Empresa,Producto
 from restaurante.models import Restaurante
@@ -135,6 +136,17 @@ def ver_ubicacion4(request,id):
      'mostrar_ubicacion':restaurante,
      'mostrar_parroquia':info_parroquia,
     })
+
+# listar medios de transporte
+def transporte(request):
+    valor = request.session.get('parroquia_id')
+    consulta_transporte=Transporte.objects.filter(parroquia__slug=valor)
+    info_parroquia=Parroquia.objects.filter(slug=valor)
+    return render(request,'interfaz_turista/transporte.html',{
+        'mostrar_transporte':consulta_transporte,
+        'mostrar_parroquia':info_parroquia,
+    })
+
 #******************************************************************
 #class FomentoProdutivo(TemplateView):
 #    template_name = 'interfaz_turista/fomento_productivo.html'

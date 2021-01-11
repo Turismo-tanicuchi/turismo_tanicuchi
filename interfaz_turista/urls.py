@@ -21,6 +21,7 @@ urlpatterns = [
     path('ver_ubicacion3/<int:id>', views.ver_ubicacion3, name='ver_ubicacion3'),
     #****** fin de implementacion *****************
     path('restaurantes/', views.restaurantes, name='restaurantes'),
+    path('transporte/', views.transporte, name='transporte'),
     #*Bryan Sandoval IMPLEMENTACION DE MAPAS alojamiento**
     path('ver_ubicacion4/<int:id>', views.ver_ubicacion4, name='ver_ubicacion4'),
     #****** fin de implementacion *****************
