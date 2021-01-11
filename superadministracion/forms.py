@@ -5,6 +5,7 @@ from parroquias.models import Parroquia
 # tipos de atractivos.
 from atractivos_naturales.models import TipoAN
 from atractivos_culturales.models import TipoAC
+from superadministracion.models import InformacionTurismo
 
 class FormularioUsuario(forms.ModelForm):
     #si quiro un campo extra lo puedo definir aqui
@@ -253,6 +254,29 @@ class Formulario_tipo_cultural(forms.ModelForm):
                 }
             ),
             'descripcion': forms.TextInput(
+                attrs = {
+                    'class': 'form-control',
+                }
+            ),
+        }
+
+class FormularioInformacionSitio(forms.ModelForm):
+    class Meta:
+        model = InformacionTurismo
+        fields = ('titulo','descripcion')
+        labels = {
+            #como quiero que se vean los labels
+            'titulo': 'Título de la información',
+            'descripcion':'Descripción',
+        }
+        widgets = {
+            'titulo': forms.TextInput(
+                attrs = {
+                    'class': 'form-control',
+                    'placeholder': 'Ejemplo: Misión Visión',
+                }
+            ),
+            'descripcion': forms.Textarea(
                 attrs = {
                     'class': 'form-control',
                 }

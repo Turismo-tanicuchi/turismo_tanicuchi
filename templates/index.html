@@ -5,10 +5,21 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="col">
   <h4 class="text-center">{{ message }}</h4>
-  <h1 class="font text-center ">Parroquias Rurales de Latacunga</h1>
+  <h1 class="font text-center ">Turismo Rural</h1>
   {% include 'parroquias/snippets/search.html' %}
   {% include 'carrusel.html' %}
 </div>
+<!-- presentar informacion de la pagina como la mision vision o lo que se trajo de la consulta -->
+{% if informacion_pagina %}
+<div class="card-body">
+  {% for informacion in informacion_pagina %}
+  <h3>{{informacion.titulo}}</h3>
+  <p class="text-justify">{{informacion.descripcion}}</p>
+  {%endfor%}
+{% endif %}
+</div>
+
 {% endblock %}

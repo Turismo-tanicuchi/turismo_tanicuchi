@@ -9,7 +9,8 @@ from django.contrib import messages
 # tipos de atractivos.
 from atractivos_naturales.models import TipoAN
 from atractivos_culturales.models import TipoAC
-from superadministracion.forms import Formulario_tipo_natural,Formulario_tipo_cultural
+from superadministracion.forms import Formulario_tipo_natural,Formulario_tipo_cultural,FormularioInformacionSitio
+from superadministracion.models import InformacionTurismo
 
 def home_superadmin(request):
     return render(request,'superadministracion/superadmin.html',{
@@ -148,3 +149,26 @@ class EliminarTipoCultural(DeleteView):
     model = TipoAC
     template_name = 'superadministracion/eliminar_tipoC.html'
     success_url = reverse_lazy('superadministracion:mostrar_tipo_cultural')
+
+# Información del sitio
+class MostrarInformacion(ListView):
+    model = InformacionTurismo
+    template_name = 'superadministracion/mostrar_informacion.html'
+    queryset = InformacionTurismo.objects.all().order_by('titulo')
+
+class CrearInformacion(CreateView):
+    model = InformacionTurismo
+    form_class = FormularioInformacionSitio
+    template_name = 'superadministracion/crear_informacion.html'
+    success_url = reverse_lazy('superadministracion:mostrar_informacion')
+
+class ActualizarInformacion(UpdateView):
+    model = InformacionTurismo
+    template_name = 'superadministracion/crear_informacion.html'
+    form_class = FormularioInformacionSitio
+    success_url = reverse_lazy('superadministracion:mostrar_informacion')
+
+class EliminarInformacion(DeleteView):
+    model = InformacionTurismo
+    template_name = 'superadministracion/eliminar_informacion.html'
+    success_url = reverse_lazy('superadministracion:mostrar_informacion')

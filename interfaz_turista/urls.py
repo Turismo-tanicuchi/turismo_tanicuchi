@@ -13,7 +13,6 @@ urlpatterns = [
     path('ver_ubicacion/<int:id>', views.ver_ubicacion, name='ver_ubicacion'),
     #****** fin de implementacion *****************
     path('atractivos_culturales/', views.atractivos_culturales, name='atractivos_culturales'),
-    path('actividad_cultural/<int:id>', views.actividad_cultural, name='actividad_cultural'),
     #*Bryan Sandoval IMPLEMENTACION DE MAPAS atractivo culturales**
     path('ver_ubicacion2/<int:id>', views.ver_ubicacion2, name='ver_ubicacion2'),
     #****** fin de implementacion *****************

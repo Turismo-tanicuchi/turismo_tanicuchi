@@ -1,6 +1,6 @@
 {% extends 'superadministracion/superadmin.html' %}
 {% block titulo %}
-Biblioteca.dev | Listado de tipos de atractivo
+Biblioteca.dev | Mostrar Información
 {% endblock titulo %}
 {% block body %}
 {% if object_list %}
@@ -8,31 +8,31 @@ Biblioteca.dev | Listado de tipos de atractivo
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="card-title">Lista de Tipos de atractivos Naturales</h2>
+                <h2 class="card-title">Información que se mostrará en la página principal</h2>
                 <br>
             </div>
             <div class="col-md-6">
-                <a href="{% url 'superadministracion:crear_tipo_natural' %}" class="btn btn-primary">Registrar Nuevo tipo</a>
+                <a href="{% url 'superadministracion:crear_informacion' %}" class="btn btn-primary">Registrar Información</a>
             </div>
         </div>
     </div>
     <div class="table-stats order-table ov-h table-responsive-sm" >
-        <table id="tabla_atractivos_culturales" class="table table-hover" >
+        <table id="tabla_informacion" class="table table-hover" >
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Nombre</th>
+                    <th scope="col">Titulo</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-              {% for atractivo in object_list %}
+              {% for informacion in object_list %}
               <tr>
-                <td>{{atractivo.nombre_tipo_an}}</td>
-                <td class="text-justify"style="width: 45.50%;">{{atractivo.descripcion}}</td>
+                <td>{{informacion.titulo}}</td>
+                <td class="text-justify"style="width: 60%;">{{informacion.descripcion}}</td>
                 <td>
-                    <a href="{% url 'superadministracion:editar_tipo_natural' atractivo.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'superadministracion:eliminar_tipo_natural' atractivo.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'superadministracion:editar_informacion' informacion.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'superadministracion:eliminar_informacion' informacion.id %}" class="btn btn-danger">Eliminar</a>
                 </td>
               </tr>
               {% endfor %}
@@ -44,7 +44,7 @@ Biblioteca.dev | Listado de tipos de atractivo
 <h2>NO EXISTEN REGISTROS </h2>
 <div class="card-header">
     <div class="col-md-8">
-        <a href="{% url 'superadministracion:crear_tipo_natural' %}" class="btn btn-primary">Registrar nuevo tipo</a>
+        <a href="{% url 'superadministracion:crear_informacion' %}" class="btn btn-primary">Nuevo registro</a>
     </div>
 </div>
 {% endif %}

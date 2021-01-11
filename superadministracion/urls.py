@@ -5,6 +5,8 @@ from superadministracion.views import ListadoUsuario,CrearUsuario,ActualizarUsua
 from superadministracion.views import MostrarParroquias,EliminarParroquia
 from superadministracion.views import MostrarTiposNaturales,CrearTipoNatural,ActualizarTipoNatural,EliminarTipoNatural
 from superadministracion.views import MostrarTiposCulturales,CrearTipoCultural,ActualizarTipoCultural,EliminarTipoCultural
+from superadministracion.views import MostrarInformacion,CrearInformacion,ActualizarInformacion,EliminarInformacion
+
 urlpatterns = [
     path('superadmin', login_required(views.home_superadmin), name='superadmin'),
     path('mostrar_usuarios/', login_required(ListadoUsuario.as_view()),name='mostrar_usuarios'),
@@ -27,5 +29,10 @@ urlpatterns = [
     path('crear_tipo_cultural/',login_required(CrearTipoCultural.as_view()),name ='crear_tipo_cultural'),
     path('editar_tipo_cultural/<int:pk>/',login_required(ActualizarTipoCultural.as_view()), name = 'editar_tipo_cultural'),
     path('eliminar_tipo_cultural/<int:pk>/',login_required(EliminarTipoCultural.as_view()), name = 'eliminar_tipo_cultural'),
+    #informacion del sitio
+    path('mostrar_informacion/', login_required(MostrarInformacion.as_view()),name='mostrar_informacion'),
+    path('crear_informacion/',login_required(CrearInformacion.as_view()),name ='crear_informacion'),
+    path('editar_informacion/<int:pk>/',login_required(ActualizarInformacion.as_view()), name = 'editar_informacion'),
+    path('eliminar_informacion/<int:pk>/',login_required(EliminarInformacion.as_view()), name = 'eliminar_informacion'),
 
 ]
