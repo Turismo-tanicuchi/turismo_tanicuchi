@@ -33,12 +33,16 @@
           División Parroquial
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        {% if listado_parroquias %}
           {% for parroquias in listado_parroquias %}
-            {% if parroquias.nombre_parr %}
+            {% if forloop.last %}
+              <a class="dropdown-item" href="{% url 'turista:datos_generales' parroquias.slug %}">{{parroquias.nombre_parr}}</a>
+            {% else %}
               <a class="dropdown-item" href="{% url 'turista:datos_generales' parroquias.slug %}">{{parroquias.nombre_parr}}</a>
               <div class="dropdown-divider"></div>
             {% endif %}
           {% endfor %}
+        {% endif %}
         </div>
       </li>
 

@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/style_interfaz/style_cards.css'%}">
+{% endblock %}
+
 {% block content %}
 
 <div class="col mb-3">
@@ -8,19 +13,26 @@
   {% endfor %}
   {% include 'parroquias/snippets/search.html' %}
   {% include 'interfaz_turista/carrusel_parroquia.html' %}
+
   {% for parroquia in mostrar_parroquia %}
-    <h2 class="text-center">Datos Generales</h2>
-    <h3>Historia</h3>
-    <p class="text-justify">{{parroquia.historia}}</p>
-    <h3>Información General</h3>
-    <p class="text-justify">{{parroquia.info_general}}</p>
-    <h3>Situación Geográfica</h3>
-    <p class="text-justify">{{parroquia.situacion_geografica}}</p>
-    {%if parroquia.pdf %}
-    <a href="{{ parroquia.pdf.url }}" class="btn btn-primary btn-sm mb-2" target="_blank">Más información</a>
-    <br>
-    {%endif%}
+    <div class="card-subtarjetas mb-4" style="max-width: 100%;">
+      <div class="row no-gutters ">
+        <div class="card-body " style="padding: 25px;">
+          <h2 class="text-center">Datos Generales</h2>
+          <h3>Historia</h3>
+          <p class="text-justify">{{parroquia.historia}}</p>
+          <h3>Información General</h3>
+          <p class="text-justify">{{parroquia.info_general}}</p>
+          <h3>Situación Geográfica</h3>
+          <p class="text-justify">{{parroquia.situacion_geografica}}</p>
+          {%if parroquia.pdf %}
+          <a href="{{ parroquia.pdf.url }}"  style="font-size: 20px;" class="btn btn-primary btn-sm mb-2" target="_blank">Más información</a>
+          {%endif%}
+        </div>
+      </div>
+    </div>
   {% endfor %}
+
 </div>
 
 {% endblock %}

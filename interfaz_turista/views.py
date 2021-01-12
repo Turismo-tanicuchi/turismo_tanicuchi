@@ -192,11 +192,11 @@ def productos(request, id):
     info_parroquia=Parroquia.objects.filter(slug=valor)
     empresa = Empresa.objects.get(id=id)
     return render(request,'interfaz_turista/productos.html',{
-        'mostrar_productos':consulta_productos,
+        'listar_productos':consulta_productos,
         'empresa':empresa,
         'mostrar_parroquia':info_parroquia,
     })
-#Magaly Sarco implementacion de calendar *
+#Magaly Sarco implementacion de eventos culturales *
 def actividades(request):
     actividades_culturales=AtractivoCultural.objects.all()
     info_parroquia=Parroquia.objects.all()
@@ -213,7 +213,7 @@ def ubicacion_parroquia(request):
     parroquia=Parroquia.objects.get(slug=valor)
     atractivos_naturales=AtractivoCultural.objects.all()
     atractivos_culturales=AtractivoNatural.objects.all()
-    return render(request,'mapas/ver_ubicacion.html',{
+    return render(request,'mapas/ver_ubicacionparr.html',{
      'mostrar_ubicacion':parroquia,
      'mostrar_parroquia':info_parroquia,
     })

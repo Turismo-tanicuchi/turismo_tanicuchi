@@ -11,18 +11,18 @@
   </div>
   <div class="col">
       {% for atractivo_natural in mostrar_atractivos %}
-      <div class="card-subtarjetas mb-3" style="max-width: 100%;">
-        <div class="row no-gutters py-4">
-          <div class="col-md-1"></div>
+      <div class="card-subtarjetas mb-4" style="max-width: 100%;">
+        <div class="row no-gutters">
           <div class="col-md-5">
-            <br>
+            <div class="card-body ">
             {% if atractivo_natural.imagen %}
               <img src="{{atractivo_natural.imagen.url}}" class="card-img" alt="img">
              {% else %}
              <h3 class="fas fa-map-marked-alt"></h3>
              {% endif %}
+             </div>
           </div>
-          <div class="col-md-6" >
+          <div class="col-md-7" >
             <div class="card-body">
               <h5 class="text-wrap">Nombre: </h5>
                 <p class="text-justify">{{atractivo_natural.nombre}}</p>

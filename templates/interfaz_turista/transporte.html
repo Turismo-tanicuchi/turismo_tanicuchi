@@ -11,18 +11,18 @@
   </div>
   <div class="col">
       {% for transporte in mostrar_transporte %}
-      <div class="card-subtarjetas mb-3" style="max-width: 100%;">
-        <div class="row no-gutters py-4">
-          <div class="col-md-1"></div>
+      <div class="card-subtarjetas mb-4" style="max-width: 100%;">
+        <div class="row no-gutters">
           <div class="col-md-5">
-            <br>
-            {% if transporte.imagen %}
-              <img src="{{transporte.imagen.url}}" class="card-img" alt="img">
-             {% else %}
-             <h3 class="fas fa-map-marked-alt"></h3>
-             {% endif %}
+            <div class="card-body ">
+              {% if transporte.imagen %}
+                <img src="{{transporte.imagen.url}}" class="card-img" alt="img">
+               {% else %}
+               <h3 class="fas fa-map-marked-alt"></h3>
+               {% endif %}
+             </div>
           </div>
-          <div class="col-md-6" >
+          <div class="col-md-7" >
             <div class="card-body">
               <h5 class="text-wrap">Nombre: </h5>
                 <p class="text-justify">{{transporte.nombre}}</p>

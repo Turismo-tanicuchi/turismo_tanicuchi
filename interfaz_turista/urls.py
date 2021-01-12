@@ -6,6 +6,9 @@ urlpatterns = [
     #path('datos_generales/<slug:slug>',DatosParroquiaView.as_view(),name ='datos_generales'),
     path('datos_generales/<slug:slug>/', views.datos_parroquia, name='datos_generales'),
     path('datos_parroquia/', views.datos_generales, name='datos_parroquia'),
+    #*Bryan Sandoval IMPLEMENTACION DE ubicacion de la parroquia**
+    path('ubicacion_parroquia/', views.ubicacion_parroquia, name='ubicacion_parroquia'),
+    #****** fin de implementacion *****************
     #turismo de la parroquia
     path('turismo/',views.turismo,name ='turismo'),
     path('atractivos_naturales/', views.atractivos_naturales, name='atractivos_naturales'),
@@ -33,9 +36,6 @@ urlpatterns = [
     #****** fin de implementacion *****************
     path('productos/<int:id>',views.productos,name ='productos'),
     path('actividades/',views.actividades,name ='actividades'),
-    #*Bryan Sandoval IMPLEMENTACION DE ubicacion de la parroquia**
-    path('ubicacion_parroquia/', views.ubicacion_parroquia, name='ubicacion_parroquia'),
-    #****** fin de implementacion *****************
     path('imagenes/',ImagenesAtrNatural.as_view(),name ='imagenes'),
     # vista de mapa turistico
     path('mapa_turistico/',views.mapa_turistico,name ='mapa_turistico'),

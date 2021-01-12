@@ -17,31 +17,33 @@
   <div class="col">
       {% for atractivo_cultural in mostrar_atractivos %}
         {% if atractivo_cultural.fecha %}
-        <div class="card-subtarjetas mb-3" style="max-width: 100%;">
-          <div class="row no-gutters py-4">
-            <div class="col-md-1"></div>
+        <div class="card-subtarjetas mb-4" style="max-width: 100%;">
+          <div class="row no-gutters">
             <div class="col-md-5">
-              <br>
-              {% if atractivo_cultural.imagen %}
-                <img src="{{atractivo_cultural.imagen.url}}" class="card-img" alt="img">
-               {% else %}
-               <h3 class="fas fa-map-marked-alt"></h3>
-               {% endif %}
+              <div class="card-body " style="padding: 25px 20px 0px 20px;">
+                {% if atractivo_cultural.imagen %}
+                  <img src="{{atractivo_cultural.imagen.url}}" style="height: 365px;" class="card-img" alt="img">
+                 {% else %}
+                 <h3 class="fas fa-map-marked-alt"></h3>
+                 {% endif %}
+                </div>
             </div>
-            <div class="col-md-6" >
-              <div class="card-body">
+            <div class="col-md-7" >
+              <div class="card-body" style="padding: 25px 20px 0px 20px;">
                 <h5 class="text-wrap">Nombre: </h5>
                   <p class="text-justify">{{atractivo_cultural.nombre}}</p>
-                <h5 class="text-wrap">Descripción: </h5>
-                  <p class="text-justify">{{atractivo_cultural.descripcion}}</p>
                 <h5 class="text-wrap">Parroquia: </h5>
                     <p class="text-justify">{{atractivo_cultural.parroquia}}</p>
                 <h5 class="text-wrap">Fecha: </h5>
                     <p class="text-justify">{{atractivo_cultural.fecha}}</p>
                 <h5 class="text-wrap">Dirección: </h5>
                   <p class="text-justify">{{atractivo_cultural.direccion}}</p>
-                <a href="{% url 'turista:ver_ubicacion2' atractivo_cultural.id %}" class="btn btn-primary">Ver ubicación</a>
               </div>
+            </div>
+            <div class="card-body" style="padding: 0px 20px 25px 20px;">
+              <h5 class="text-wrap">Descripción: </h5>
+                <p class="text-justify">{{atractivo_cultural.descripcion}}</p>
+              <a href="{% url 'turista:ver_ubicacion2' atractivo_cultural.id %}" class="btn btn-primary">Ver ubicación</a>
             </div>
           </div>
         </div>

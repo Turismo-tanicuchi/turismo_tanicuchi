@@ -11,18 +11,18 @@
   </div>
   <div class="col">
       {% for alojamiento in mostrar_alojamientos %}
-      <div class="card-subtarjetas mb-3" style="max-width: 100%;">
-        <div class="row no-gutters py-4">
-          <div class="col-md-1"></div>
+      <div class="card-subtarjetas mb-4" style="max-width: 100%;">
+        <div class="row no-gutters ">
           <div class="col-md-5">
-            <br>
-            {% if alojamiento.imagen %}
-              <img src="{{alojamiento.imagen.url}}" class="card-img" alt="img">
-             {% else %}
-             <h3 class="fas fa-map-marked-alt"></h3>
-             {% endif %}
+            <div class="card-body ">
+              {% if alojamiento.imagen %}
+                <img src="{{alojamiento.imagen.url}}" class="card-img" alt="img">
+               {% else %}
+               <h3 class="fas fa-map-marked-alt"></h3>
+               {% endif %}
+            </div>
           </div>
-          <div class="col-md-6" >
+          <div class="col-md-7" >
             <div class="card-body">
               <h5 class="text-wrap">Nombre: </h5>
                 <p class="text-justify">{{alojamiento.nombre}}</p>
