@@ -37,8 +37,8 @@ Biblioteca.dev | Listado de Transporte
                     {% endif %}
                 </td>
                 <td>
-                    <a href="{% url 'transporte:editar_transporte' transporte.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'transporte:eliminar_transporte' transporte.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'transporte:editar_transporte' transporte.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'transporte:eliminar_transporte' transporte.id %}" class="btn btn-danger far fa-trash-alt"></a>
                 </td>
               </tr>
               {% endfor %}

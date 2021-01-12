@@ -43,8 +43,8 @@ Biblioteca.dev | Listado de Empresa
                 </td>
                 <td style="width: 15%;">{{empresa.tipo_id}}</td>
                 <td>
-                    <a href="{% url 'empresa:editar_empresa' empresa.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'empresa:eliminar_empresa' empresa.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'empresa:editar_empresa' empresa.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'empresa:eliminar_empresa' empresa.id %}" class="btn btn-danger far fa-trash-alt"></a>
                 </td>
               </tr>
               {% endfor %}

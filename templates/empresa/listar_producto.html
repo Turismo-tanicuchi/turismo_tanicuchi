@@ -31,7 +31,7 @@ Biblioteca.dev | Listado de Productos
               {% for producto in object_list %}
               <tr>
                 <td style="width: 17%;">{{producto.nombre}}</td>
-                <td class="text-justify"style="width: 35%;">{{producto.detalle}}</td>
+                <td class="text-justify"style="width: 37%;">{{producto.detalle}}</td>
                 <td>
                     {% if producto.imagen %}
                       <img src="{{producto.imagen.url}}" alt="img">
@@ -39,8 +39,8 @@ Biblioteca.dev | Listado de Productos
                 </td>
                 <td style="width: 15%;">{{producto.empresa}}</td>
                 <td>
-                    <a href="{% url 'empresa:editar_producto' producto.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'empresa:eliminar_producto' producto.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'empresa:editar_producto' producto.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'empresa:eliminar_producto' producto.id %}" class="btn btn-danger far fa-trash-alt"></a>
                 </td>
               </tr>
               {% endfor %}

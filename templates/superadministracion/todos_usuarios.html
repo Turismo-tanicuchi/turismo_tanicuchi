@@ -42,11 +42,11 @@ Biblioteca.dev | Listado de Usuarios
                       {% endif %}
                   </td>
                   <td>
-                    <a href="{% url 'superadministracion:nueva_password' usuario.id %}" class="btn btn-warning">Nueva contraseña</a>
+                    <a href="{% url 'superadministracion:nueva_password' usuario.id %}" class="btn btn-warning">Cambiar contraseña</a>
                   </td>
                   <td>
-                    <a href="{% url 'superadministracion:editar_usuario' usuario.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'superadministracion:eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'superadministracion:editar_usuario' usuario.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'superadministracion:eliminar_usuario' usuario.id %}" class="btn btn-danger far fa-trash-alt"></a>
                   </td>
                 </tr>
                 {% endif %}
@@ -91,8 +91,8 @@ Biblioteca.dev | Listado de Usuarios
                     <a href="{% url 'superadministracion:nueva_password' usuario.id %}" class="btn btn-warning">Nueva contraseña</a>
                   </td>
                   <td>
-                    <a href="{% url 'superadministracion:editar_usuario' usuario.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'superadministracion:eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'superadministracion:editar_usuario' usuario.id %}" class="btn btn-primary far fa-edit "></a>
+                    <a href="{% url 'superadministracion:eliminar_usuario' usuario.id %}" class="btn btn-danger far fa-trash-alt"></a>
                   </td>
                 </tr>
                 {% endif %}

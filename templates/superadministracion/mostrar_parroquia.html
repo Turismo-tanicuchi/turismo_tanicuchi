@@ -36,8 +36,8 @@ Biblioteca.dev | Listado de Parroquias
                   </td>
                   <td>{{parroquia.administrador}}</td>
                   <td>
-                    <a href="{% url 'superadministracion:editar_parroquia' parroquia.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'superadministracion:eliminar_parroquia' parroquia.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'superadministracion:editar_parroquia' parroquia.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'superadministracion:eliminar_parroquia' parroquia.id %}" class="btn btn-danger far fa-trash-alt"></a>
                   </td>
                 </tr>
               {% endfor %}

@@ -4,7 +4,7 @@ Biblioteca.dev | Datos Parroquia
 {% endblock titulo %}
 {% block body %}
 {% if object_list %}
-<div class="card">
+<div class="card p-4">
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
@@ -77,7 +77,7 @@ Biblioteca.dev | Datos Parroquia
       {%endif%}
       <div class="">
         <div class="col-md-8">
-          <a href="{% url 'parroquias:editar_parroquia' parroquia.id %}" class="btn btn-primary">Editar Información</a>
+          <a href="{% url 'parroquias:editar_parroquia' parroquia.id %}" class="btn btn-primary far fa-edit">  Editar Información</a>
         </div>
       </div>
     {% endfor %}

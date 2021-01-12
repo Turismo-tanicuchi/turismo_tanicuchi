@@ -44,9 +44,9 @@ Biblioteca.dev | Listado de Restaurantes
                 </td>
                 <td>
                     <a href="{% url 'restaurante:editar_restaurante' restaurante.id %}"
-                      class="btn btn-primary">Editar</a>
+                      class="btn btn-primary far fa-edit"></a>
                     <a href="{% url 'restaurante:eliminar_restaurante' restaurante.id %}"
-                      class="btn btn-danger">Eliminar</a>
+                      class="btn btn-danger far fa-trash-alt"></a>
                 </td>
               </tr>
               {% endfor %}

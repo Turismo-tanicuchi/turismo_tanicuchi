@@ -29,10 +29,10 @@ Biblioteca.dev | Listado de tipos de atractivo
               {% for atractivo in object_list %}
               <tr>
                 <td style="width: 25%;">{{atractivo.nombre_tipo_ac}}</td>
-                <td class="text-justify"style="width: 54%;">{{atractivo.descripcion}}</td>
+                <td class="text-justify"style="width: 52%;">{{atractivo.descripcion}}</td>
                 <td>
-                    <a href="{% url 'superadministracion:editar_tipo_cultural' atractivo.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'superadministracion:eliminar_tipo_cultural' atractivo.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'superadministracion:editar_tipo_cultural' atractivo.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'superadministracion:eliminar_tipo_cultural' atractivo.id %}" class="btn btn-danger far fa-trash-alt"></a>
                 </td>
               </tr>
               {% endfor %}

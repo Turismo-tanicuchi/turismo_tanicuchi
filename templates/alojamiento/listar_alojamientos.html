@@ -41,8 +41,8 @@ Biblioteca.dev | Listado de Alojamientos
                     {% endif %}
                 </td>
                 <td>
-                    <a href="{% url 'alojamiento:editar_alojamiento' alojamiento.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'alojamiento:eliminar_alojamiento' alojamiento.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'alojamiento:editar_alojamiento' alojamiento.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'alojamiento:eliminar_alojamiento' alojamiento.id %}" class="btn btn-danger far fa-trash-alt"></a>
                 </td>
               </tr>
               {% endfor %}

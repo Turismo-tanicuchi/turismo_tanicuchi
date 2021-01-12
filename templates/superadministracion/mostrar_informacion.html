@@ -29,10 +29,10 @@ Biblioteca.dev | Mostrar Información
               {% for informacion in object_list %}
               <tr>
                 <td>{{informacion.titulo}}</td>
-                <td class="text-justify"style="width: 60%;">{{informacion.descripcion}}</td>
+                <td class="text-justify"style="width: 70%;">{{informacion.descripcion}}</td>
                 <td>
-                    <a href="{% url 'superadministracion:editar_informacion' informacion.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'superadministracion:eliminar_informacion' informacion.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'superadministracion:editar_informacion' informacion.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'superadministracion:eliminar_informacion' informacion.id %}" class="btn btn-danger far fa-trash-alt"></a>
                 </td>
               </tr>
               {% endfor %}

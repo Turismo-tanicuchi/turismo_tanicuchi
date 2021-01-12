@@ -26,7 +26,7 @@ class FormularioRestaurante(forms.ModelForm):
             'descripcion': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Direccion',
+                    'placeholder': 'Descripción',
                 }
             ),
             'direccion': forms.TextInput(

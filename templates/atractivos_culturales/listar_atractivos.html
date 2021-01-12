@@ -43,8 +43,8 @@ Biblioteca.dev | Listado de Atractivos Culturales
                 </td>
                 <td style="width: 12%;">{{atractivo.tipo_id}}</td>
                 <td>
-                    <a href="{% url 'atractivos_culturales:editar_atractivo' atractivo.id %}" class="btn btn-primary">Editar</a>
-                    <a href="{% url 'atractivos_culturales:eliminar_atractivo' atractivo.id %}" class="btn btn-danger">Eliminar</a>
+                    <a href="{% url 'atractivos_culturales:editar_atractivo' atractivo.id %}" class="btn btn-primary far fa-edit"></a>
+                    <a href="{% url 'atractivos_culturales:eliminar_atractivo' atractivo.id %}" class="btn btn-danger far fa-trash-alt"></a>
                 </td>
               </tr>
               {% endfor %}
