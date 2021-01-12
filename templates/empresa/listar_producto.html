@@ -8,8 +8,7 @@ Biblioteca.dev | Listado de Productos
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="card-title">Lista de Productos</h2>
-                <br>
+                <h2 class="card-title text-center">Lista de Productos</h2>
                 <br>
             </div>
             <div class="col-md-6">
@@ -17,7 +16,7 @@ Biblioteca.dev | Listado de Productos
             </div>
         </div>
     </div>
-    <div class="table-stats order-table ov-h table-responsive-sm" >
+    <div class="table-stats  ov-h table-responsive-sm" >
         <table id="tabla_transportes" class="table table-hover" >
             <thead class="thead-dark">
                 <tr>
@@ -31,8 +30,8 @@ Biblioteca.dev | Listado de Productos
             <tbody>
               {% for producto in object_list %}
               <tr>
-                <td>{{producto.nombre}}</td>
-                <td class="text-justify"style="width: 25%;">{{producto.detalle}}</td>
+                <td style="width: 17%;">{{producto.nombre}}</td>
+                <td class="text-justify"style="width: 35%;">{{producto.detalle}}</td>
                 <td>
                     {% if producto.imagen %}
                       <img src="{{producto.imagen.url}}" alt="img">

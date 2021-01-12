@@ -5,9 +5,9 @@ Biblioteca.dev | Crear información
 {% block body %}
 <div class="card">
     <div class="card-header">
-        <h2 class="card-title">Registrar informacion de la aplicación</h2>
+        <h2 class="card-title text-center">Registrar información de la aplicación</h2>
     </div>
-    <div class="card-body">
+    <div class="card-body p-5">
       <form  method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{form.as_p}}

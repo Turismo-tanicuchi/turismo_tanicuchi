@@ -100,6 +100,26 @@ class FormularioEmpresa(forms.ModelForm):
                 }
             )
         }
+#-------------- Magaly - Validacion -----------------------------------------------
+    def clean_latitud(self):
+        latitud = self.cleaned_data.get('latitud')
+        if str(latitud).isalpha():
+            raise forms.ValidationError('El campo "Latitud" no puede ser alfabetico')
+        else:
+            for i in range(len(str(latitud))):
+                if str(latitud)[i].isspace():
+                    raise forms.ValidationError('El campo no puede tener espacios en blanco')
+        return latitud
+
+    def clean_longitud(self):
+        longitud = self.cleaned_data.get('longitud')
+        if str(longitud).isalpha():
+            raise forms.ValidationError('El campo "Longuitud" no puede ser alfabetico')
+        else:
+            for i in range(len(str(longitud))):
+                if str(longitud)[i].isspace():
+                    raise forms.ValidationError('El campo no puede tener espacios en blanco')
+        return longitud
 
 class FormularioEditEmpresa(forms.ModelForm):
     #registro de atractivosnaturales
@@ -140,7 +160,7 @@ class FormularioEditEmpresa(forms.ModelForm):
                     'class': 'form-control',
                     'placeholder': 'longitud',
                 }
-            ),        
+            ),
             'descripcion': forms.Textarea(
                 attrs={
                     'class': 'form-control',
@@ -163,6 +183,26 @@ class FormularioEditEmpresa(forms.ModelForm):
                 }
             )
         }
+#-------------- Magaly - Validacion -----------------------------------------------
+    def clean_latitud(self):
+        latitud = self.cleaned_data.get('latitud')
+        if str(latitud).isalpha():
+            raise forms.ValidationError('El campo "Latitud" no puede ser alfabetico')
+        else:
+            for i in range(len(str(latitud))):
+                if str(latitud)[i].isspace():
+                    raise forms.ValidationError('El campo no puede tener espacios en blanco')
+        return latitud
+
+    def clean_longitud(self):
+        longitud = self.cleaned_data.get('longitud')
+        if str(longitud).isalpha():
+            raise forms.ValidationError('El campo "Longuitud" no puede ser alfabetico')
+        else:
+            for i in range(len(str(longitud))):
+                if str(longitud)[i].isspace():
+                    raise forms.ValidationError('El campo no puede tener espacios en blanco')
+        return longitud
 
 class FormularioProducto(forms.ModelForm):
     #registro de atractivosnaturales
@@ -247,16 +287,3 @@ class FormularioEditProducto(forms.ModelForm):
                 }
             )
         }
-#--------------------------- MAGALY--------------------------------------------------------------------
-    def clean_latitud(self):
-        latitud = self.cleaned_data.get('latitud')
-        if str(latitud).isalpha():
-            raise forms.ValidationError('El campo "Latitud" no puede ser alfabetico"')
-        return latitud
-
-    def clean_longitud(self):
-        longitud = self.cleaned_data.get('longitud')
-        if str(longitud).isalpha():
-            raise forms.ValidationError('El campo "Longuitud" no puede ser alfabetico"')
-        return longitud
-#------------------------------------------------------------------------------------------------------

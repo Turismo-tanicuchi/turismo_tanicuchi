@@ -64,16 +64,23 @@ class FormularioAlojamientos(forms.ModelForm):
             )
         }
 
-#--------------------------- MAGALY--------------------------------------------------------------------
+#-------------- Magaly - Validacion -----------------------------------------------
     def clean_latitud(self):
         latitud = self.cleaned_data.get('latitud')
         if str(latitud).isalpha():
-            raise forms.ValidationError('El campo "Latitud" no puede ser alfabetico"')
+            raise forms.ValidationError('El campo "Latitud" no puede ser alfabetico')
+        else:
+            for i in range(len(str(latitud))):
+                if str(latitud)[i].isspace():
+                    raise forms.ValidationError('El campo no puede tener espacios en blanco')
         return latitud
 
     def clean_longitud(self):
         longitud = self.cleaned_data.get('longitud')
         if str(longitud).isalpha():
-            raise forms.ValidationError('El campo "Longuitud" no puede ser alfabetico"')
+            raise forms.ValidationError('El campo "Longuitud" no puede ser alfabetico')
+        else:
+            for i in range(len(str(longitud))):
+                if str(longitud)[i].isspace():
+                    raise forms.ValidationError('El campo no puede tener espacios en blanco')
         return longitud
-#------------------------------------------------------------------------------------------------------

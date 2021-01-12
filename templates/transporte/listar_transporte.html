@@ -8,8 +8,7 @@ Biblioteca.dev | Listado de Transporte
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="card-title">Lista de Transportes</h2>
-                <br>
+                <h2 class="card-title text-center">Lista de Transportes</h2>
                 <br>
             </div>
             <div class="col-md-6">
@@ -17,7 +16,7 @@ Biblioteca.dev | Listado de Transporte
             </div>
         </div>
     </div>
-    <div class="table-stats order-table ov-h table-responsive-sm" >
+    <div class="table-stats ov-h table-responsive-sm" >
         <table id="tabla_transportes" class="table table-hover" >
             <thead class="thead-dark">
                 <tr>
@@ -30,8 +29,8 @@ Biblioteca.dev | Listado de Transporte
             <tbody>
               {% for transporte in object_list %}
               <tr>
-                <td>{{transporte.nombre}}</td>
-                <td>{{transporte.ruta}}</td>
+                <td style="width: 30%;">{{transporte.nombre}}</td>
+                <td style="width: 30%;">{{transporte.ruta}}</td>
                 <td>
                     {% if transporte.imagen %}
                       <img src="{{transporte.imagen.url}}" alt="img">

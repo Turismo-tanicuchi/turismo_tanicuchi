@@ -24,14 +24,14 @@
             <div id="main-menu" class="main-menu">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="{% url 'home' %}"><i class="menu-icon fa fa-laptop"></i>Inicio</a>
+                        <a href="{% url 'superadministracion:superadmin' %}"><i class="menu-icon fa fa-laptop"></i>Inicio</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
                                 class="menu-icon fa fa-cogs"></i>Información del sitio</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="{% url 'superadministracion:mostrar_informacion' %}">Información existente</a></li>
-                            <li><i class="fa fa-table"></i><a href="{% url 'superadministracion:crear_informacion' %}">Nuevo registro</a></li>
+                            <li><i class="fas fa-pencil-alt"></i><a href="{% url 'superadministracion:crear_informacion' %}">Nuevo registro</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -39,7 +39,7 @@
                                 class="menu-icon fa fa-users"></i>Usuarios</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="{% url 'superadministracion:mostrar_usuarios' %}">Listado de Usuarios</a></li>
-                            <li><i class="fa fa-table"></i><a href="{% url 'superadministracion:crear_usuario' %}">Crear Nuevo Usuario</a></li>
+                            <li><i class="fas fa-pencil-alt"></i><a href="{% url 'superadministracion:crear_usuario' %}">Crear Nuevo Usuario</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -47,7 +47,7 @@
                          class="menu-icon fas fa-place-of-worship"></i>Parroquias</a>
                        <ul class="sub-menu children dropdown-menu">
                          <li><i class="fa fa-table"></i><a href="{% url 'superadministracion:mostrar_parroquias' %}">Listado de Parroquias</a></li>
-                         <li><i class="fa fa-table"></i><a href="{% url 'superadministracion:crear_parroquia' %}">Registro de Parroquias</a></li>
+                         <li><i class="fas fa-pencil-alt"></i><a href="{% url 'superadministracion:crear_parroquia' %}">Registro de Parroquias</a></li>
                        </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">

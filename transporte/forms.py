@@ -57,16 +57,3 @@ class FormularioTransporte(forms.ModelForm):
                 }
             )
         }
-#--------------------------- MAGALY--------------------------------------------------------------------
-    def clean_latitud(self):
-        latitud = self.cleaned_data.get('latitud')
-        if str(latitud).isalpha():
-            raise forms.ValidationError('El campo "Latitud" no puede ser alfabetico"')
-        return latitud
-
-    def clean_longitud(self):
-        longitud = self.cleaned_data.get('longitud')
-        if str(longitud).isalpha():
-            raise forms.ValidationError('El campo "Longuitud" no puede ser alfabetico"')
-        return longitud
-#------------------------------------------------------------------------------------------------------

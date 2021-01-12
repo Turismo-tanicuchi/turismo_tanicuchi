@@ -4,8 +4,8 @@ Biblioteca.dev | Registro de Alojamiento
 {% endblock titulo %}
 {% block body %}
 <div class="admin col">
-  <div class=" card" ">
-    <h2 class="card-title">Registro de Alojamiento</h2>
+  <div class=" card p-5" >
+    <h2 class="card-title text-center">Registro de Alojamiento</h2>
       <form  method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {% for field in form %}

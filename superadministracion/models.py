@@ -3,7 +3,7 @@ from django.db import models
 # modelo para ingresar informacion del proyecto como la mision vision etc.
 class InformacionTurismo(models.Model):
     titulo = models.CharField('Titulo',max_length=150, unique=True)
-    descripcion = models.TextField('Descripción',blank=True, null=True)
+    descripcion = models.TextField('Descripción')
     created_at = models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name= 'InformacionTurismo'

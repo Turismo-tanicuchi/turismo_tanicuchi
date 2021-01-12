@@ -75,11 +75,19 @@ class FormularioAtractivoNatural(forms.ModelForm):
         latitud = self.cleaned_data.get('latitud')
         if str(latitud).isalpha():
             raise forms.ValidationError('El campo "Latitud" no puede ser alfabético"')
+        else:
+            for i in range(len(str(latitud))):
+                if str(latitud)[i].isspace():
+                    raise forms.ValidationError('El campo no puede tener espacios en blanco')
         return latitud
 
     def clean_longitud(self):
         longitud = self.cleaned_data.get('longitud')
         if str(longitud).isalpha():
             raise forms.ValidationError('El campo "Longitud" no puede ser alfabético"')
+        else:
+            for i in range(len(str(longitud))):
+                if str(longitud)[i].isspace():
+                    raise forms.ValidationError('El campo no puede tener espacios en blanco')    
         return longitud
 #------------------------------------------------------------------------------------------------------

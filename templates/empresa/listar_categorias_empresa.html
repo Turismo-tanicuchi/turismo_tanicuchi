@@ -8,8 +8,7 @@ Biblioteca.dev | Listado de las Categorias Empresa
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="card-title">Lista Categorias de Empresas</h2>
-                <br>
+                <h2 class="card-title text-center">Lista Categorias de Empresas</h2>
                 <br>
             </div>
             <div class="col-md-6">
@@ -17,7 +16,7 @@ Biblioteca.dev | Listado de las Categorias Empresa
             </div>
         </div>
     </div>
-    <div class="table-stats order-table ov-h table-responsive-sm" >
+    <div class="table-stats ov-h table-responsive-sm" >
         <table id="tabla_transportes" class="table table-hover" >
             <thead class="thead-dark">
                 <tr>
@@ -31,14 +30,14 @@ Biblioteca.dev | Listado de las Categorias Empresa
             <tbody>
               {% for Categorias in object_list %}
               <tr>
-                <td>{{Categorias.nombre}}</td>
-                <td>{{Categorias.descripcion}}</td>
+                <td style="width: 17%;">{{Categorias.nombre}}</td>
+                <td style="width: 32%;">{{Categorias.descripcion}}</td>
                 <td>
                     {% if Categorias.imagen %}
                       <img src="{{Categorias.imagen.url}}" alt="img">
                     {% endif %}
                 </td>
-                <td>{{Categorias.parroquia}}</td>
+                <td style="width: 20%;">{{Categorias.parroquia}}</td>
                 <td>
                     <a href="{% url 'empresa:editar_categoria' Categorias.id %}" class="btn btn-primary">Editar</a>
                     <a href="{% url 'empresa:eliminar_categoria' Categorias.id %}" class="btn btn-danger">Eliminar</a>

@@ -5,9 +5,9 @@ Biblioteca.dev | Crear nuevo Tipo
 {% block body %}
 <div class="card">
     <div class="card-header">
-        <h2 class="card-title">Registro de Tipos de atractivo</h2>
+        <h2 class="card-title text-center">Registro de Tipos de atractivo</h2>
     </div>
-    <div class="card-body">
+    <div class="card-body p-5">
       <form  method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{form.as_p}}

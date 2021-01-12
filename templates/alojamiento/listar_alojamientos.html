@@ -8,8 +8,7 @@ Biblioteca.dev | Listado de Alojamientos
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="card-title">Lista de Alojamientos</h2>
-                <br>
+                <h2 class="card-title text-center">Lista de Alojamientos</h2>
                 <br>
             </div>
             <div class="col-md-6">
@@ -17,7 +16,7 @@ Biblioteca.dev | Listado de Alojamientos
             </div>
         </div>
     </div>
-    <div class="table-stats order-table ov-h table-responsive-sm" >
+    <div class="table-stats ov-h table-responsive-sm" >
         <table id="tabla_alojamientos" class="table table-hover" >
             <thead class="thead-dark">
                 <tr>
@@ -32,8 +31,8 @@ Biblioteca.dev | Listado de Alojamientos
             <tbody>
               {% for alojamiento in object_list %}
               <tr>
-                <td>{{alojamiento.nombre}}</td>
-                <td style="width: 25%;">{{alojamiento.direccion}}</td>
+                <td style="width: 18%;">{{alojamiento.nombre}}</td>
+                <td style="width: 30%;">{{alojamiento.direccion}}</td>
                 <td>{{alojamiento.latitud}}</td>
                 <td>{{alojamiento.longitud}}</td>
                 <td>

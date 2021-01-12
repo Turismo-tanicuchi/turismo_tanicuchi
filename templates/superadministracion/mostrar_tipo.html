@@ -8,7 +8,7 @@ Biblioteca.dev | Listado de tipos de atractivo
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="card-title">Lista de Tipos de atractivos Naturales</h2>
+                <h2 class="card-title text-center">Lista de Tipos de atractivos Naturales</h2>
                 <br>
             </div>
             <div class="col-md-6">
@@ -16,7 +16,7 @@ Biblioteca.dev | Listado de tipos de atractivo
             </div>
         </div>
     </div>
-    <div class="table-stats order-table ov-h table-responsive-sm" >
+    <div class="table-stats  ov-h table-responsive-sm" >
         <table id="tabla_atractivos_culturales" class="table table-hover" >
             <thead class="thead-dark">
                 <tr>
@@ -28,8 +28,8 @@ Biblioteca.dev | Listado de tipos de atractivo
             <tbody>
               {% for atractivo in object_list %}
               <tr>
-                <td>{{atractivo.nombre_tipo_an}}</td>
-                <td class="text-justify"style="width: 45.50%;">{{atractivo.descripcion}}</td>
+                <td style="width: 25%;">{{atractivo.nombre_tipo_an}}</td>
+                <td class="text-justify"style="width: 55%;">{{atractivo.descripcion}}</td>
                 <td>
                     <a href="{% url 'superadministracion:editar_tipo_natural' atractivo.id %}" class="btn btn-primary">Editar</a>
                     <a href="{% url 'superadministracion:eliminar_tipo_natural' atractivo.id %}" class="btn btn-danger">Eliminar</a>

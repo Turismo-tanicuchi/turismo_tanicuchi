@@ -9,7 +9,7 @@ Biblioteca.dev | Listado de Parroquias
     <div class="card-header text-center">
           <h2 class="card-title">Lista de Parroquias</h2>
     </div>
-    <div class="table-stats order-table ov-h">
+    <div class="table-stats ov-h">
         <table id="tabla_parroquias" class="table table-hover">
             <thead class="thead-dark">
                 <tr>
@@ -24,8 +24,8 @@ Biblioteca.dev | Listado de Parroquias
             <tbody>
               {% for parroquia in object_list %}
                 <tr>
-                  <td>{{parroquia.nombre_parr}}</td>
-                  <td>{{parroquia.email}}</td>
+                  <td style="width: 11%;">{{parroquia.nombre_parr}}</td>
+                  <td style="width: 15%;">{{parroquia.email}}</td>
                   <td>{{parroquia.telefono}}</td>
                   <td>
                       {% if parroquia.imagen %}

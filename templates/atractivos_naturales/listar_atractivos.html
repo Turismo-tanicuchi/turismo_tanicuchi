@@ -8,8 +8,7 @@ Biblioteca.dev | Listado de Atractivos Naturales
     <div class="card-header">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="card-title">Lista de Atractivos Naturales</h2>
-                <br>
+                <h2 class="card-title text-center">Lista de Atractivos Naturales</h2>
                 <br>
             </div>
             <div class="col-md-6">
@@ -17,7 +16,7 @@ Biblioteca.dev | Listado de Atractivos Naturales
             </div>
         </div>
     </div>
-    <div class="table-stats order-table ov-h table-responsive-sm" >
+    <div class="table-stats ov-h table-responsive-sm" >
         <table id="tabla_atractivos_naturales" class="table table-hover" >
             <thead class="thead-dark">
                 <tr>
@@ -33,8 +32,8 @@ Biblioteca.dev | Listado de Atractivos Naturales
             <tbody>
               {% for atractivo in object_list %}
               <tr>
-                <td style="width: 12%;">{{atractivo.nombre}}</td>
-                <td class="text-justify"style="width: 12%;">{{atractivo.direccion}}</td>
+                <td style="width: 17%;">{{atractivo.nombre}}</td>
+                <td class="text-justify"style="width: 20%;">{{atractivo.direccion}}</td>
                 <td>{{atractivo.latitud}}</td>
                 <td>{{atractivo.longitud}}</td>
                 <td>
@@ -42,7 +41,7 @@ Biblioteca.dev | Listado de Atractivos Naturales
                       <img src="{{atractivo.imagen.url}}" alt="img">
                     {% endif %}
                 </td>
-                <td>{{atractivo.tipo_id}}</td>
+                <td style="width: 10%;">{{atractivo.tipo_id}}</td>
                 <td>
                     <a href="{% url 'atractivos_naturales:editar_atractivo' atractivo.id %}" class="btn btn-primary">Editar</a>
                     <a href="{% url 'atractivos_naturales:eliminar_atractivo' atractivo.id %}" class="btn btn-danger">Eliminar</a>
