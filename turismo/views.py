@@ -14,7 +14,7 @@ def home_view(request):
     })
 #para el turista
 def index_view(request):
-    parroquias=Parroquia.objects.all()
+    parroquias=Parroquia.objects.all().order_by('nombre_parr')
     informacion=InformacionTurismo.objects.all()
     #print(parroquias)
     print(informacion)
