@@ -9,41 +9,61 @@
 <div class="container-fluid">
     <h1 class="font text-center ">Turismo</h1>
     <div class="container_fomento">
-      <div class="card_fomento">
-        <img src="{% static 'images/turismo/atractivos_naturales.jpg'%}">
-        <h4>Atractivos Naturales</h4>
-        <a href="{% url 'turista:atractivos_naturales'%}">Leer más</a>
-      </div>
+      <!-- si hay atractivos  naturales mostrar -->
+      {% if naturales %}
+        <div class="card_fomento">
+          <img src="{% static 'images/turismo/atractivos_naturales.jpg'%}">
+          <h4>Atractivos Naturales</h4>
+          <a href="{% url 'turista:atractivos_naturales'%}">Leer más</a>
+        </div>
+      {% endif %}
 
-      <div class="card_fomento">
-        <img src="{% static 'images/turismo/atractivos_culturales.jpg'%}">
-        <h4>Atractivos Culturales</h4>
-        <a href="{% url 'turista:atractivos_culturales'%}">Leer más</a>
-      </div>
+      <!-- si hay atractivos  culturales mostrar -->
+      {% if culturales %}
+        <div class="card_fomento">
+          <img src="{% static 'images/turismo/atractivos_culturales.jpg'%}">
+          <h4>Atractivos Culturales</h4>
+          <a href="{% url 'turista:atractivos_culturales'%}">Leer más</a>
+        </div>
+      {% endif %}
 
-      <div class="card_fomento">
-        <img src="{% static 'images/turismo/restaurantes.jpg'%}">
-        <h4>Restaurantes</h4>
-        <a href="{% url 'turista:restaurantes'%}">Leer más</a>
-      </div>
+      <!-- si hay restaurantes mostrar -->
+      {% if restaurantes %}
+        <div class="card_fomento">
+          <img src="{% static 'images/turismo/restaurantes.jpg'%}">
+          <h4>Restaurantes</h4>
+          <a href="{% url 'turista:restaurantes'%}">Leer más</a>
+        </div>
+      {% endif %}
 
+      <!-- si hay alojamientos mostrar -->
+      {% if alojamiento %}
       <div class="card_fomento">
         <img src="{% static 'images/turismo/alojamiento.jpg'%}">
         <h4>Alojamiento</h4>
         <a href="{% url 'turista:alojamiento'%}">Leer más</a>
       </div>
+      {% endif %}
 
-      <div class="card_fomento">
-        <img src="{% static 'images/turismo/transporte.jpg'%}">
-        <h4>Transporte</h4>
-        <a href="{% url 'turista:transporte'%}">Leer más</a>
-      </div>
+      <!-- si hay transporte mostrar -->
+      {% if transporte %}
+        <div class="card_fomento">
+          <img src="{% static 'images/turismo/transporte.jpg'%}">
+          <h4>Transporte</h4>
+          <a href="{% url 'turista:transporte'%}">Leer más</a>
+        </div>
+      {% endif %}
 
-      <div class="card_fomento">
-        <img src="{% static 'images/turismo/como_llegar.jpg'%}">
-        <h4>Ubicación de la parroquia</h4>
-        <a href="{% url 'turista:ubicacion_parroquia' %}">Ver ubicación</a>
-      </div>
+      <!-- si hay coordenadas de la parroquia -->
+      {% for parroquia in mostrar_parroquia %}
+        {% if parroquia.latitud %}
+          <div class="card_fomento">
+            <img src="{% static 'images/turismo/como_llegar.jpg'%}">
+            <h4>Ubicación de la parroquia</h4>
+            <a href="{% url 'turista:ubicacion_parroquia' %}">Ver ubicación</a>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
 </div>
 {% endblock %}

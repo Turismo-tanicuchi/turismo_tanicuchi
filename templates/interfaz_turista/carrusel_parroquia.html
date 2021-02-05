@@ -7,9 +7,9 @@
       <ol class="carousel-indicators">
         {% for n in mostrar_imagenes %}
           {% if forloop.first %}
-          <li data-target="#home-carousel" data-slide-to="{{ forloop.counter0}}" class="active"></li>
+          <li style="box-shadow: 1px 3px 5px 1px white; border-radius: 100%; background: rgba(0,113,255,0.7);"data-target="#home-carousel" data-slide-to="{{ forloop.counter0}}" class="active"></li>
           {% else %}
-          <li data-target="#home-carousel" data-slide-to="{{ forloop.counter0}}"></li>
+          <li style="box-shadow: 1px 3px 5px 1px white; border-radius: 100%; background: rgba(0,113,255,0.7);"data-target="#home-carousel" data-slide-to="{{ forloop.counter0}}"></li>
           {% endif %}
         {% endfor %}
       </ol>
@@ -45,5 +45,5 @@
   </section>
 </div>
 {% else %}
-<h1>No hay imagenes</h1>
+<br>
 {% endif %}

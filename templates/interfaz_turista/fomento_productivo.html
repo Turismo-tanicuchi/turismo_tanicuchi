@@ -13,7 +13,7 @@
           {% if categorias.imagen %}
             <img src="{{categorias.imagen.url}}" class="card-img" alt="img">
            {% else %}
-           <h3 class="fas fa-map-marked-alt"></h3>
+             <img src="{% static 'images/avatar_empresa.jpg'%}" class="d-block w-100" alt="avatar">
            {% endif %}
            <h4>{{categorias.nombre}}</h4>
            <a href="{% url 'turista:empresas' categorias.id %}">Ver Empresas</a>

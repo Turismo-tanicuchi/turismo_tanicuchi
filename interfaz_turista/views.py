@@ -28,12 +28,16 @@ def datos_parroquia(request, slug):
     consulta_imagenes = ImagenesParroquia.objects.filter(parroquia__slug=slug)
     request.session['parroquia_id']=slug
     valor = request.session.get('parroquia_id')
+    #confirmar si hay categorias para el fomento productivo y activar el botón
+    consulta_categorias=TipoEmp.objects.filter(parroquia__slug=slug).exists()
     #print(valor)
     productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=slug)[:6]
     return render(request,'interfaz_turista/datos_generales.html',{
         'mostrar_parroquia':info_parroquia,
         'mostrar_imagenes' : consulta_imagenes,
         'mostrar_productos':productos,
+        #para validar si hay categorias
+        'mostrar_categorias':consulta_categorias,
     })
 
 #cuando no viene el slug de la pqrroquia uso el q tiene la sesion
@@ -43,17 +47,38 @@ def datos_generales(request):
     info_parroquia=Parroquia.objects.filter(slug=valor)
     consulta_imagenes = ImagenesParroquia.objects.filter(parroquia__slug=valor)
     productos=Producto.objects.filter(empresa__tipo_id__parroquia__slug=valor)[:6]
+    #confirmar si hay categorias para el fomento productivo y activar el botón
+    consulta_categorias=TipoEmp.objects.filter(parroquia__slug=valor).exists()
     return render(request,'interfaz_turista/datos_generales.html',{
         'mostrar_parroquia':info_parroquia,
         'mostrar_imagenes' : consulta_imagenes,
         'mostrar_productos':productos,
+        #para validar si hay categorias
+        'mostrar_categorias':consulta_categorias,
     })
 
 def turismo(request):
     valor = request.session.get('parroquia_id')
     info_parroquia=Parroquia.objects.filter(slug=valor)
+    #comprobar que haya registros para mostrar opciones
+    atrac_naturales=AtractivoNatural.objects.filter(parroquia__slug=valor).exists()
+    atrac_culturales=AtractivoCultural.objects.filter(parroquia__slug=valor).exists()
+    consulta_alojamientos=Alojamiento.objects.filter(parroquia__slug=valor).exists()
+    consulta_restaurantes=Restaurante.objects.filter(parroquia__slug=valor).exists()
+    consulta_transporte=Transporte.objects.filter(parroquia__slug=valor).exists()
+    #consultar si hay fomento Productivo
+    consulta_categorias=TipoEmp.objects.filter(parroquia__slug=valor).exists()
+    #consulta_coordenadas = Parroquia.objects.filter(slug=valor).filter(latitud__isnull=False)
     return render(request,'interfaz_turista/turismo.html',{
         'mostrar_parroquia':info_parroquia,
+        #para validad existencias
+        'naturales':atrac_naturales,
+        'culturales': atrac_culturales,
+        'alojamiento': consulta_alojamientos,
+        'restaurantes':consulta_restaurantes,
+        'transporte':consulta_transporte,
+        #'parroquia':consulta_coordenadas
+        'mostrar_categorias':consulta_categorias,
     })
 
 def atractivos_naturales(request):

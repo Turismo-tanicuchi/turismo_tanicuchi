@@ -10,6 +10,11 @@
   <a class="navbar-brand" href="{% url 'index' %}">
     <img src="{% static 'images/logo.jpg'%}" width="150" height="100" alt="turismo" loading="lazy" >
   </a>
+  {% for parroquia in mostrar_parroquia %}
+    <div class="col">
+      <h5 class="text-center" style="color: white;" >{{parroquia.nombre_parr}}</h5>
+    </div>
+  {% endfor %}
 
   <!-- boton q aparece cuando es pantalla pequeña -->
   <button type="button" name="button" class="navbar-toggler navbar-toggler-right"
@@ -31,17 +36,22 @@
           Datos Generales</a>
       </li>
 
+      <!-- si hay algun contenido de turismo que se muestre la opcion  -->
+
       <li class="navbar-item">
         <a href="{% url 'turista:turismo' %}" class ="nav-link">
           <span class="fas fa-map-signs"></span>
           Turismo</a>
       </li>
 
+      <!-- si hay algun contenido de fomento productivo que se muestre la opcion  -->
+      {% if mostrar_categorias %}
       <li class="navbar-item">
         <a href="{% url 'turista:fomento_productivo' %}" class ="nav-link">
           <span class="fab fa-buffer"></span>
           Fomento Productivo</a>
       </li>
+      {% endif %}
 
       <!-- saber si esta autenticado -->
       {% if user.is_authenticated %}
@@ -52,6 +62,17 @@
                 Usuario
               </a>
               <div class="dropdown-menu dropdown-menu-lg-right">
+                {# verificamos si es super superadmin #}
+                  {% if user.is_superuser == True %}
+                  <a class="dropdown-item" href="{% url 'superadministracion:superadmin' %}">
+                    <span class="fas fa-user-cog"></span>
+                    Super Administración</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'mis_datos' %}">
+                    <span class="fas fa-user-cog"></span>
+                    Mi perfil</a>
+                {% else %}
+                  {# si no es superusuario veo si es administrador parroquial #}
                   {% if user.usuario_admin == True %}
                   <a class="dropdown-item" href="{% url 'home' %}">
                     <span class="fas fa-user-cog"></span>
@@ -65,6 +86,7 @@
                       <span class="fas fa-user-cog"></span>
                       Mi perfil</a>
                   {% endif %}
+                {% endif %}
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{% url 'logout' %}">
                     <span class="fas fa-sign-in-alt"></span>
