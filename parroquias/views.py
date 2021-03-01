@@ -110,7 +110,7 @@ def registrarImagenes(request):
             form = FormularioImgParroquia({
                 'parroquia':valor
             })
-        return render(request,'Parroquias/crear_imagen.html',{
+        return render(request,'parroquias/crear_imagen.html',{
         #context
             'form':form
         })
