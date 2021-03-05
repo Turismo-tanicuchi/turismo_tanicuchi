@@ -129,7 +129,7 @@ class EliminarImagenesParroquia(DeleteView):
 
 class ActualizarDatosParroquia(UpdateView):
     model = Parroquia
-    template_name = 'Parroquias/crear_parroquia.html'
+    template_name = 'parroquias/crear_parroquia.html'
     form_class = FormularioParroquia
     success_url = reverse_lazy('parroquias:datos_parroquia')
 #-------------------------MAGALY -> DECORADOR---------------------------------
