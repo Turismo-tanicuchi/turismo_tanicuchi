@@ -15,7 +15,7 @@ class FormularioAtractivoCultural(forms.ModelForm):
             'longitud':'Coordenadas Longitud',
             'imagen': 'Imagen',
             'tipo': 'Elija el tipo',
-            'fecha': 'Engrese la fecha si se trata de una festividad (año-mes-dia ejm 2021-11-20)',
+            'fecha': 'Ingrese la fecha si se trata de una festividad (año-mes-dia ejm 2021-11-20)',
             'parroquia': 'Elige la parroquia'
         }
         widgets = {
@@ -60,10 +60,13 @@ class FormularioAtractivoCultural(forms.ModelForm):
                     'placeholder': 'Ingrese el tipo',
                 }
             ),
-            'fecha': forms.DateInput(
+            'fecha': forms.TextInput(
                 attrs = {
                     'class': 'form-control',
+                    #para que aparezca el calendario
+                    'type':'date',
                     'placeholder': 'seleccine la fecha si se trata de una festividad',
+
                 }
             ),
             'parroquia': forms.TextInput(
